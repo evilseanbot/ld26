@@ -1,0 +1,16 @@
+* How do you move around?
+  - A character that only moves side to side, doesn't jump?
+  - A jumping character that moves side to side?
+  - A character that flies around.
+
+* How do you turn on/turn off colors?
+  - By hitting torches.
+  - By switching colors at color switching stations.
+  - By grabbing once off items.
+
+* How frequently do colors turn on/off?
+  - By hitting torches.
+  - 
+  
+* Do invisible objects affect you?
+  - 
