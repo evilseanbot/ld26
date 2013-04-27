@@ -2,7 +2,8 @@
   - A character that only moves side to side, doesn't jump?
   - A jumping character that moves side to side?
   - A character that flies around.
-
+  - You don't -> The only control is turning colors on and off.
+  
 * How do you turn on/turn off colors?
   - By hitting torches.
   - By switching colors at color switching stations.
@@ -10,7 +11,13 @@
 
 * How frequently do colors turn on/off?
   - By hitting torches.
-  - 
+  - Once off, by collecting items.
+  - Once per level, they are reset at the end of levels (3?)
   
 * Do invisible objects affect you?
-  - 
+  - Possibly Yes.
+  - Possibly No.
+  
+* What is the goal of the game?
+  - Reach the exit
+  - Heard your collection of nonesense beasts.

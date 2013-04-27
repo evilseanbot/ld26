@@ -1,0 +1,13 @@
+1. Green vines appear, allowing you to climb a wall.
+2. When you get Red, you can see that everything was covered in blood.
+3. New colors let you see parts of animals you didn't know they had.
+4. Blue makes water appear, which you can swimb through.
+5. Blue makes water appear, which raises logs you can jump on.
+6. Blue makes water appear that will eventulaly drown you.
+7. Red makes fires appear, which rips holes in walls you couldn't bypass but also opens areas up.
+8. Red makes bricks appear.
+9. Blue makes stone walls appear.
+
+
+Works with the Lemmings idea:
+1. Maybe (Have to figure out climbing behavior), 2., 3., 4., 5., 6., 7., 8., 9.
