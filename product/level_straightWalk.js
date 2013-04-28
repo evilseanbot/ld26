@@ -2,7 +2,7 @@ Crafty.c("Level_StraightWalk", {
     init: function() {
 	
 	    // Start of first platform.
-		Crafty.e("2D, Canvas, Sprite, start, red, Lightable, LightSource").attr({x: 0, y:3*64, alpha: 0});		
+		Crafty.e("2D, Canvas, Sprite, start").attr({x: 0, y:3*64, alpha: 1});		
 		
 		Crafty.e("2D, Canvas, Sprite, brickWall, solid, red, Lightable").attr({x: 0, y:5*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, solid, red, Lightable").attr({x: 1*64, y:5*64, alpha: 0});
@@ -24,7 +24,8 @@ Crafty.c("Level_StraightWalk", {
 		Crafty.e("2D, Canvas, Sprite, brickWall, solid, red, Lightable").attr({x: 17*64, y:5*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, solid, red, Lightable").attr({x: 18*64, y:5*64, alpha: 0});
 		
-		Crafty.e("2D, Canvas, Sprite, exit, red, Lightable, LightSource").attr({x: 16*64, y:3*64, alpha: 0});				
+		
+		Crafty.e("2D, Canvas, Sprite, exit").attr({x: 16*64, y:3*64, alpha: 1});				
 				
         	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -800, x: 0});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -1600, x: -200});

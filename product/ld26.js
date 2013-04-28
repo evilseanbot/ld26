@@ -9,8 +9,9 @@ function loadEntity(url) {
 
 function lightAllColors() {
 	for (var i = 0; i < Crafty("green").length; i++) {	 			
-	    Crafty(Crafty("green")[i]).reLight();
+		Crafty(Crafty("green")[i]).reLight();
 	}
+		
 	for (var i = 0; i < Crafty("red").length; i++) {	 			
 	    Crafty(Crafty("red")[i]).reLight();
 	}
@@ -25,13 +26,14 @@ function startLevel() {
     requiredRescued = 2
 	greenAlwaysOn = false;
 
-    Crafty("*").destroy();
-	//text = Crafty.e("2D, Canvas, Text").attr({h: 50, w:200, x: 1100, y: 0}).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
-    //Crafty.e("Level_steelDoors2");	
-	//lightAllColors();
-	//Crafty.e("2D, Canvas, Collision, LightSource, Cursor, Sprite").attr({h: 20, w: 20, x: 20, y:20});	
-	//Crafty.e("2D, Canvas, Mouse, MouseScreen").attr({x: 0, y: 0, h: screenHeight, w:screenWidth});
-	//Crafty.e("2D, Canvas, RestartButton, Mouse").attr({h: 50, w:100});	
+    //Crafty("*").destroy();
+	Crafty('obj').each(function() { this.destroy(); });
+	text = Crafty.e("2D, Canvas, Text").attr({h: 50, w:200, x: 1100, y: 0}).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
+    Crafty.e("Level_StraightWalk");	
+	lightAllColors();
+	Crafty.e("2D, Canvas, Collision, LightSource, Cursor, Sprite").attr({h: 20, w: 20, x: 20, y:20});	
+	Crafty.e("2D, Canvas, Mouse, MouseScreen").attr({x: 0, y: 0, h: screenHeight, w:screenWidth});
+	Crafty.e("2D, Canvas, RestartButton, Mouse").attr({h: 50, w:100});	
 	
 
 }
@@ -368,14 +370,5 @@ $(document).ready(function() {
     Crafty.init(screenWidth, screenHeight);	
     Crafty.canvas.init(); 
 	Crafty.background('#000000');	
-	//Crafty.background('#FFFFFF');	
-	//startLevel();
-	
-	text = Crafty.e("2D, Canvas, Text").attr({h: 50, w:200, x: 1100, y: 0}).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
-    Crafty.e("Level_steelDoors2");	
-	lightAllColors();
-	Crafty.e("2D, Canvas, Collision, LightSource, Cursor, Sprite").attr({h: 20, w: 20, x: 20, y:20});	
-	Crafty.e("2D, Canvas, Mouse, MouseScreen").attr({x: 0, y: 0, h: screenHeight, w:screenWidth});
-	Crafty.e("2D, Canvas, RestartButton, Mouse").attr({h: 50, w:100});	
-
+	startLevel();
 });
