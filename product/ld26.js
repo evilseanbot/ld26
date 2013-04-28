@@ -16,17 +16,51 @@ var mouseX = 0;
 var mouseY = 0;
 
 Crafty.c("Critter", {
+    xSpeed: 1,
     init: function() {
 	    this.attr({h: 126, w: 62});
 		this.color("#FF00FF");
 	    this.bind("EnterFrame", function() {
-		    this.x++;
-			this.attr({y: this.y+4});
-			
-			while (this.hit("brickWall") &&  this.hit("brickWall")[0]["obj"].exists) {
-			    
-			    this.y -=1;
+		    this.x += this.xSpeed;
+			if (this.hit("brickWall") && this.hit("brickWall")[0]["obj"].exists) {
+			    this.x -= (this.xSpeed*2);
+				this.xSpeed = -1;
 			}
+			
+			//var falling = true;
+			
+			this.y += 4;
+			var outOfWall = false;
+			while (!outOfWall) {
+			    var inWall = false;
+				for (var i = 0; i < this.hit("brickWall").length; i++) {
+				    if (this.hit("brickWall")[i]["obj"].exists) {
+					    inWall = true;
+						this.y -= 1;
+					}
+				}				
+				outOfWall = !inWall;			    
+			}
+			
+			/*
+			for (var i = 0; i < this.hit("brickWall").length; i++) {
+			    while 
+			}
+			
+			this.attr({y: this.y+4});
+		    if (this.hit("brickWall") {
+			    var inWall = false;
+				for (var i = 0; i < this.hit("brickWall").length; i++) {
+				    if (this.hit("brickWall")[i]["obj"].exists) {
+					    inWall = true;
+					}
+				}
+				if (inWall = true) {
+			    this.y -=1;
+				
+				}				
+			}
+			*/
 		})
 	}
 });
@@ -191,7 +225,11 @@ $(document).ready(function() {
 	
     Crafty.e("Level1");
 	
-	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -200});
+	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -800, x: 0});
+	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -1600, x: -200});
+	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -2400, x: -400});
+	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -3200, x: -600});
+	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -4000, x:-800});
 	
 	
 	Crafty.e("2D, Canvas, Mouse, MouseScreen").attr({x: 0, y: 0, h: screenHeight, w:screenWidth});
