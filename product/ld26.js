@@ -16,25 +16,36 @@ var mouseX = 0;
 var mouseY = 0;
 var text;
 var crittersRescued = 0;
+var requiredRescued = 2;
 
 Crafty.c("RestartButton", {
     box: null,
-	text: null,
+	buttonText: null,
     init: function() {
 	    this.x = 1100;
 		this.y = 100;
 		
-		box = Crafty.e("2D, Canvas, Color").attr({h: 100, w:100, x: this.x, y:this.y}).color("#BB4444");
+		this.box = Crafty.e("2D, Canvas, Color").attr({h: 50, w:100, x: this.x, y:this.y}).color("#BB4444");
+	    this.buttonText = Crafty.e("2D, Canvas, Text").attr({h: 30, w:200, x: this.x, y: this.y}).text("  RESTART").textColor("#FFFFFF");
+		
 	}
 });
 
 Crafty.c("Critter", {
     xSpeed: 1,
+	redLayer: null,
     init: function() {
-	    this.attr({h: 126, w: 62});
-		this.color("#FF00FF");
+	    this.attr({h: 192, w: 192, alpha: 0});
+		//this.color("#FF00FF");
+		
+		this.redLayer = Crafty.e("2D, Canvas, Sprite, pickleRedLayer, red, Lightable").attr({h: 3*64, w:3*64, alpha: 0});		
+		
 	    this.bind("EnterFrame", function() {
 		    
+		    this.redLayer.x = this.x;
+			this.redLayer.y = this.y;
+			this.redLayer.reLight();
+			
 			this.x += this.xSpeed;
 			for (var i = 0; i < this.hit("brickWall").length; i++) {
 				if (this.hit("brickWall")[i]["obj"].exists) {
@@ -59,7 +70,7 @@ Crafty.c("Critter", {
 			if (this.hit("exit")) {
 			    crittersRescued++;
 			    text.destroy();
-	            text = Crafty.e("2D, Canvas, Text").attr({h:100, w:100, x: 1100, y: 10 }).text("Rescued: " + crittersRescued).textColor("#FFFFFF");
+	            text = Crafty.e("2D, Canvas, Text").attr({h:50, w:100, x: 1100, y: 0 }).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
 			    this.destroy();
 			}
 		})
@@ -73,7 +84,14 @@ Crafty.c("Lightable", {
 		    var source = Crafty(Crafty("LightSource")[i]);
 			if (source.lit) {
 			    if ((source.lightColor == "red" && this.has("red")) || (source.lightColor == "blue" && this.has("blue"))) {
-    				var distance = Math.abs(this.x - source.x) + Math.abs(this.y - source.y);
+
+    				var xCenter = this.x + (this.w/2);
+					var yCenter = this.y + (this.h/2);
+					
+					var xSourceCenter = source.x + (source.w/2);
+					var ySourceCenter = source.y + (source.h/2);
+				
+    				var distance = Math.abs(xCenter - xSourceCenter) + Math.abs(yCenter - ySourceCenter);
 	    			light += 1200000.0 / Math.pow(distance, 3);
 			    }
 			}
@@ -180,34 +198,6 @@ $(document).ready(function() {
 	
 	var screenWidth = 1200;
 	var screenHeight = 600;
-	
-	Crafty.sprite(100, 100, "greenFace.png", {
-	    greenFace: [0, 0]
-	});
-	
-	Crafty.sprite(100, 100, "redFace.png", {
-	    redFace: [0, 0]
-	});
-
-	Crafty.sprite(100, 100, "blueFace.png", {
-	    blueFace: [0, 0]
-	});	
-
-	Crafty.sprite(100, 100, "redBlood.png", {
-	    redBlood: [0, 0]
-	});
-
-	Crafty.sprite(800, 200, "redSky.png", {
-	    redSky: [0, 0]
-	});
-
-	Crafty.sprite(800, 200, "blueSky.png", {
-	    blueSky: [0, 0]
-	});	
-
-	Crafty.sprite(800, 200, "greenSky.png", {
-	    greenSky: [0, 0]
-	});
 
 	Crafty.sprite(64, 64, "brickWall.png", {
 	    brickWall: [0, 0]
@@ -229,14 +219,29 @@ $(document).ready(function() {
 	    exit: [0, 0]
 	});
 	
+	Crafty.sprite(192, 192, "pickleRedLayer.png", {
+	    pickleRedLayer: [0, 0]
+	});
+	
+	Crafty.sprite(192, 192, "pickleBlueLayer.png", {
+	    pickleBlueLayer: [0, 0]
+	});
+	
+	Crafty.sprite(192, 192, "pickleGreenLayer.png", {
+	    pickleGreenLayer: [0, 0]
+	});
 
-    Crafty.init(screenWidth, screenHeight);
+	Crafty.sprite(192, 192, "pickleOutline.png", {
+	    pickleOutline: [0, 0]
+	});
+	
+    Crafty.init(screenWidth, screenHeight);	
     Crafty.canvas.init(); 
 	Crafty.background('#000000');	
 	//Crafty.background('#FFFFFF');	
 
 
-	text = Crafty.e("2D, Canvas, Text").attr({h:100, w:100, x: 1100, y: 10 }).text("Rescued: " + crittersRescued).textColor("#FFFFFF");
+	text = Crafty.e("2D, Canvas, Text").attr({h: 50, w:200, x: 1100, y: 0}).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
 	Crafty.e("2D, Canvas, RestartButton");
 //	text.attr({x: -200});
 

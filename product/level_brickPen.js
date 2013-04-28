@@ -68,12 +68,13 @@ Crafty.c("Level_BrickPen", {
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 17*64, y:8*64, alpha: 0});	
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 18*64, y:8*64, alpha: 0});	
 		
-		
+		/*
 		for (var mapX = 0; mapX < 19; mapX++) {
 			for (var mapY = 0; mapY < 2; mapY++) {
 				Crafty.e("2D, Canvas, Sprite, sky, blue, Lightable").attr({x: mapX*64, y: mapY*64, alpha: 0});
 			}
 		}
+		*/
 
         	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -800, x: 0});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -1600, x: -200});
