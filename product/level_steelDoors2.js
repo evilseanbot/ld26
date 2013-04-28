@@ -52,15 +52,17 @@ Crafty.c("Level_steelDoors2", {
 		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 11*64, y:8*64, alpha: 0});		
 		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 12*64, y:6*64, alpha: 0});		
 		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 12*64, y:8*64, alpha: 0});		
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 13*64, y:0*64, alpha: 0});		
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 13*64, y:1*64, alpha: 0});		
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 13*64, y:2*64, alpha: 0});		
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 13*64, y:3*64, alpha: 0});
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 13*64, y:4*64, alpha: 0});
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 13*64, y:5*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 13*64, y:6*64, alpha: 0});
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 13*64, y:7*64, alpha: 0});
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 13*64, y:8*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 13*64, y:8*64, alpha: 0});		
+		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 14*64, y:0*64, alpha: 0});		
+		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 14*64, y:1*64, alpha: 0});		
+		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 14*64, y:2*64, alpha: 0});		
+		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 14*64, y:3*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 14*64, y:4*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 14*64, y:5*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 14*64, y:6*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 14*64, y:7*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 14*64, y:8*64, alpha: 0});
 
 		
 		
@@ -82,9 +84,9 @@ Crafty.c("Level_steelDoors2", {
 		Crafty.e("2D, Canvas, Sprite, steelWall, blue, solid, Lightable").attr({x: 9*64, y:3*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, steelWall, blue, solid, Lightable").attr({x: 10*64, y:3*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, steelWall, blue, solid, Lightable").attr({x: 12*64, y:3*64, alpha: 0});
-
+		Crafty.e("2D, Canvas, Sprite, steelWall, blue, solid, Lightable").attr({x: 13*64, y:3*64, alpha: 0});
         
-		Crafty.e("2D, Canvas, Sprite, exit, red, Lightable, LightSource").attr({x: 16*64, y:6*64, alpha: 0});				
+		Crafty.e("2D, Canvas, Sprite, exit, red, Lightable, LightSource").attr({x: 13*64, y:7*64, alpha: 0});				
 		
 		
 		/*
