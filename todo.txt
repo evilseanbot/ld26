@@ -1,0 +1,10 @@
+TO DO FOR GAME (By Monday, 6pm):
+=======================================
+- Get Music
+- Design a narrative
+- Draw the tiles
+- Pick which tiles are being used.
+- Pick which scenarios to do
+- Optimize / Limit Torches
+- Design Levels
+- Sound effects: Torches lit, extinguished.

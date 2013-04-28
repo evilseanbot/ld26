@@ -21,13 +21,14 @@ Crafty.c("Critter", {
 	    this.attr({h: 126, w: 62});
 		this.color("#FF00FF");
 	    this.bind("EnterFrame", function() {
-		    this.x += this.xSpeed;
-			if (this.hit("brickWall") && this.hit("brickWall")[0]["obj"].exists) {
-			    this.x -= (this.xSpeed*2);
-				this.xSpeed = -1;
-			}
-			
-			//var falling = true;
+		    
+			this.x += this.xSpeed;
+			for (var i = 0; i < this.hit("brickWall").length; i++) {
+				if (this.hit("brickWall")[i]["obj"].exists) {
+					this.x -= (this.xSpeed*2);
+					this.xSpeed = -1;
+				}
+			}				
 			
 			this.y += 4;
 			var outOfWall = false;
