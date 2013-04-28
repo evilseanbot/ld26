@@ -17,6 +17,17 @@ var mouseY = 0;
 var text;
 var crittersRescued = 0;
 
+Crafty.c("RestartButton", {
+    box: null,
+	text: null,
+    init: function() {
+	    this.x = 1100;
+		this.y = 100;
+		
+		box = Crafty.e("2D, Canvas, Color").attr({h: 100, w:100, x: this.x, y:this.y}).color("#BB4444");
+	}
+});
+
 Crafty.c("Critter", {
     xSpeed: 1,
     init: function() {
@@ -48,7 +59,7 @@ Crafty.c("Critter", {
 			if (this.hit("exit")) {
 			    crittersRescued++;
 			    text.destroy();
-	            text = Crafty.e("2D, DOM, Text").attr({h:100, w:100, x: 1100, y: 10 }).text("Rescued: " + crittersRescued).textColor("#FFFFFF");
+	            text = Crafty.e("2D, Canvas, Text").attr({h:100, w:100, x: 1100, y: 10 }).text("Rescued: " + crittersRescued).textColor("#FFFFFF");
 			    this.destroy();
 			}
 		})
@@ -225,7 +236,8 @@ $(document).ready(function() {
 	//Crafty.background('#FFFFFF');	
 
 
-	text = Crafty.e("2D, DOM, Text").attr({h:100, w:100, x: 1100, y: 10 }).text("Rescued: " + crittersRescued).textColor("#FFFFFF");
+	text = Crafty.e("2D, Canvas, Text").attr({h:100, w:100, x: 1100, y: 10 }).text("Rescued: " + crittersRescued).textColor("#FFFFFF");
+	Crafty.e("2D, Canvas, RestartButton");
 //	text.attr({x: -200});
 
     
