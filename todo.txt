@@ -8,3 +8,4 @@ TO DO FOR GAME (By Monday, 6pm):
 - Optimize / Limit Torches
 - Design Levels
 - Sound effects: Torches lit, extinguished.
+- Make start and exit tiles function.

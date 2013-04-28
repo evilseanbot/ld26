@@ -14,6 +14,8 @@ $(document).mousemove(function(e){
 
 var mouseX = 0;
 var mouseY = 0;
+var text;
+var crittersRescued = 0;
 
 Crafty.c("Critter", {
     xSpeed: 1,
@@ -42,6 +44,13 @@ Crafty.c("Critter", {
 				}				
 				outOfWall = !inWall;			    
 			}
+			
+			if (this.hit("exit")) {
+			    crittersRescued++;
+			    text.destroy();
+	            text = Crafty.e("2D, DOM, Text").attr({h:100, w:100, x: 1100, y: 10 }).text("Rescued: " + crittersRescued).textColor("#FFFFFF");
+			    this.destroy();
+			}
 		})
 	}
 });
@@ -54,7 +63,7 @@ Crafty.c("Lightable", {
 			if (source.lit) {
 			    if ((source.lightColor == "red" && this.has("red")) || (source.lightColor == "blue" && this.has("blue"))) {
     				var distance = Math.abs(this.x - source.x) + Math.abs(this.y - source.y);
-	    			light += 800000.0 / Math.pow(distance, 3);
+	    			light += 1200000.0 / Math.pow(distance, 3);
 			    }
 			}
 		}
@@ -196,15 +205,32 @@ $(document).ready(function() {
 	Crafty.sprite(64, 64, "sky.png", {
 	    sky: [0, 0]
 	});
+
+	Crafty.sprite(64, 64, "guardRail.png", {
+	    guardRail: [0, 0]
+	});
+
+	Crafty.sprite(128, 128, "start.png", {
+	    start: [0, 0]
+	});
+
+	Crafty.sprite(128, 128, "exit.png", {
+	    exit: [0, 0]
+	});
 	
 
     Crafty.init(screenWidth, screenHeight);
     Crafty.canvas.init(); 
 	Crafty.background('#000000');	
+	//Crafty.background('#FFFFFF');	
 
-	Crafty.e("2D, Canvas, Color, Collision, LightSource, Cursor").attr({h: 20, w: 20, x: 20, y:20}).color("#FF0000");
+
+	text = Crafty.e("2D, DOM, Text").attr({h:100, w:100, x: 1100, y: 10 }).text("Rescued: " + crittersRescued).textColor("#FFFFFF");
+//	text.attr({x: -200});
+
+    
 	
-    Crafty.e("Level1");
-	
+    Crafty.e("Level_BrickPen");
+	Crafty.e("2D, Canvas, Color, Collision, LightSource, Cursor").attr({h: 20, w: 20, x: 20, y:20}).color("#FF0000");	
 	Crafty.e("2D, Canvas, Mouse, MouseScreen").attr({x: 0, y: 0, h: screenHeight, w:screenWidth});
 });

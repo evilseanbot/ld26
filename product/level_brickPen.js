@@ -1,5 +1,9 @@
-Crafty.c("Level1", {
+Crafty.c("Level_BrickPen", {
     init: function() {
+	
+	    // Start of first platform.
+		Crafty.e("2D, Canvas, Sprite, start, red, Lightable, LightSource").attr({x: 0, y:1*64, alpha: 0});		
+		
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 0, y:3*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 1*64, y:3*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 2*64, y:3*64, alpha: 0});
@@ -8,9 +12,24 @@ Crafty.c("Level1", {
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 5*64, y:3*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 6*64, y:3*64, alpha: 0});
 
+		Crafty.e("2D, Canvas, Sprite, guardRail, red, Lightable").attr({x: 0, y:2*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, guardRail, red, Lightable").attr({x: 1*64, y:2*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, guardRail, red, Lightable").attr({x: 2*64, y:2*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, guardRail, red, Lightable").attr({x: 3*64, y:2*64, alpha: 0});		
+		Crafty.e("2D, Canvas, Sprite, guardRail, red, Lightable").attr({x: 4*64, y:2*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, guardRail, red, Lightable").attr({x: 5*64, y:2*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, guardRail, red, Lightable").attr({x: 6*64, y:2*64, alpha: 0});
+		
+		
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 7*64, y:3*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 7*64, y:2*64, alpha: 0});
-
+		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 7*64, y:1*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 7*64, y:0*64, alpha: 0});
+		
+        // End of first platform.
+		
+		
+		// Start of second platform
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 3*64, y:6*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 4*64, y:6*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 5*64, y:6*64, alpha: 0});
@@ -21,7 +40,20 @@ Crafty.c("Level1", {
 
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 10*64, y:6*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 10*64, y:5*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 10*64, y:4*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 10*64, y:3*64, alpha: 0});
 
+		
+		Crafty.e("2D, Canvas, Sprite, guardRail, red, Lightable").attr({x: 3*64, y:5*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, guardRail, red, Lightable").attr({x: 4*64, y:5*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, guardRail, red, Lightable").attr({x: 5*64, y:5*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, guardRail, red, Lightable").attr({x: 7*64, y:5*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, guardRail, red, Lightable").attr({x: 9*64, y:5*64, alpha: 0});
+		// End of second platform
+		
+		// Third platform
+		Crafty.e("2D, Canvas, Sprite, exit, red, Lightable, LightSource").attr({x: 16*64, y:6*64, alpha: 0});				
+		
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 6*64, y:8*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 7*64, y:8*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, Lightable").attr({x: 8*64, y:8*64, alpha: 0});
