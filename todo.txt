@@ -10,4 +10,4 @@ TO DO FOR GAME (By Monday, 6pm):
 - Sound effects: Torches lit, torches extinguished, critters rescued, critters die. (Henry? Chris?)
 - Redesign code to support multiple types of critters. (Sean)
 - Program opening screen, level select.
-- Make restart button change to next level.
+- Make restart / Next Level button function. (Sean)

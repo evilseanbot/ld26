@@ -9,15 +9,31 @@ function loadEntity(url) {
 
 function lightAllColors() {
 	for (var i = 0; i < Crafty("green").length; i++) {	 			
-				Crafty(Crafty("green")[i]).reLight();
+	    Crafty(Crafty("green")[i]).reLight();
 	}
 	for (var i = 0; i < Crafty("red").length; i++) {	 			
-				Crafty(Crafty("red")[i]).reLight();
+	    Crafty(Crafty("red")[i]).reLight();
 	}
 	for (var i = 0; i < Crafty("blue").length; i++) {	 			
-				Crafty(Crafty("blue")[i]).reLight();
+	    Crafty(Crafty("blue")[i]).reLight();
 	}
 	
+}
+
+function startLevel() {
+	crittersRescued = 0;
+    requiredRescued = 2
+	greenAlwaysOn = false;
+
+    Crafty("*").destroy();
+	//text = Crafty.e("2D, Canvas, Text").attr({h: 50, w:200, x: 1100, y: 0}).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
+    //Crafty.e("Level_steelDoors2");	
+	//lightAllColors();
+	//Crafty.e("2D, Canvas, Collision, LightSource, Cursor, Sprite").attr({h: 20, w: 20, x: 20, y:20});	
+	//Crafty.e("2D, Canvas, Mouse, MouseScreen").attr({x: 0, y: 0, h: screenHeight, w:screenWidth});
+	//Crafty.e("2D, Canvas, RestartButton, Mouse").attr({h: 50, w:100});	
+	
+
 }
 
 $(document).mousemove(function(e){
@@ -30,6 +46,8 @@ var mouseY = 0;
 var text;
 var crittersRescued = 0;
 var requiredRescued = 2;
+var screenWidth = 1200;
+var screenHeight = 600;
 
 var greenAlwaysOn = false;
 
@@ -49,8 +67,11 @@ Crafty.c("RestartButton", {
 			this.buttonText.destroy();
 	        this.buttonText = Crafty.e("2D, Canvas, Text").attr({h: 30, w:200, x: this.x, y: this.y}).text("  NEXT LEVEL").textColor("#FFFFFF");			
 			}
-		});
+		});		
 		
+		this.bind("Click", function() {
+		    startLevel();
+		});
 	}
 });
 
@@ -132,7 +153,7 @@ Crafty.c("Critter", {
 			for (var i = 0; i < this.hit("solid").length; i++) {
 				if (this.hit("solid")[i]["obj"].exists) {
 					this.x -= (this.xSpeed*2);
-					this.xSpeed = -1;
+					this.xSpeed = -this.xSpeed;
 				}
 			}							
 			
@@ -219,6 +240,7 @@ Crafty.c("MouseScreen", {
 		    var cursor = Crafty("Cursor");
 		
 			if(e.mouseButton == Crafty.mouseButtons.LEFT) {
+			
 			    if (cursor.mode == 0) {
 					var torch = Crafty.e("2D, Canvas, Sprite, redLight, LightSource, Torch").attr({x: cursor.x, y: cursor.y});
 					torch.lightColor = "red";
@@ -236,6 +258,8 @@ Crafty.c("MouseScreen", {
 			} else if (e.mouseButton == Crafty.mouseButtons.RIGHT) {
 			    cursor.changeMode();
 			}
+			
+			lightAllColors();			
         });
 		
 		this.bind('MouseMove', function() {
@@ -284,9 +308,6 @@ $(document).ready(function() {
 	$.ajaxSetup({
 	    async: false
 	});
-	
-	var screenWidth = 1200;
-	var screenHeight = 600;
 
 	Crafty.sprite(64, 64, "brickWall.png", {
 	    brickWall: [0, 0]
@@ -348,21 +369,13 @@ $(document).ready(function() {
     Crafty.canvas.init(); 
 	Crafty.background('#000000');	
 	//Crafty.background('#FFFFFF');	
-
-
+	//startLevel();
+	
 	text = Crafty.e("2D, Canvas, Text").attr({h: 50, w:200, x: 1100, y: 0}).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
-	Crafty.e("2D, Canvas, RestartButton");
-//	text.attr({x: -200});
-
-    
-	
-//    Crafty.e("Level_BrickPen");
-//    Crafty.e("Level_StraightWalk");
-    Crafty.e("Level_steelDoors2");
-	
+    Crafty.e("Level_steelDoors2");	
 	lightAllColors();
-
-	
 	Crafty.e("2D, Canvas, Collision, LightSource, Cursor, Sprite").attr({h: 20, w: 20, x: 20, y:20});	
 	Crafty.e("2D, Canvas, Mouse, MouseScreen").attr({x: 0, y: 0, h: screenHeight, w:screenWidth});
+	Crafty.e("2D, Canvas, RestartButton, Mouse").attr({h: 50, w:100});	
+
 });
