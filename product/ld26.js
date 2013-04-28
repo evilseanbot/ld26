@@ -43,11 +43,20 @@ Crafty.c("RestartButton", {
 		this.box = Crafty.e("2D, Canvas, Color").attr({h: 50, w:100, x: this.x, y:this.y}).color("#BB4444");
 	    this.buttonText = Crafty.e("2D, Canvas, Text").attr({h: 30, w:200, x: this.x, y: this.y}).text("  RESTART").textColor("#FFFFFF");
 		
+		this.bind("EnterFrame", function() {
+		    if (crittersRescued >= requiredRescued) {
+			this.box.color("44BB44");
+			this.buttonText.destroy();
+	        this.buttonText = Crafty.e("2D, Canvas, Text").attr({h: 30, w:200, x: this.x, y: this.y}).text("  NEXT LEVEL").textColor("#FFFFFF");			
+			}
+		});
+		
 	}
 });
 
 Crafty.c("Critter", {
     xSpeed: 1,
+	ySpeed: 1,
 	redLayer: null,
 	blueLayer: null,
 	darkLayer: null,
@@ -84,36 +93,39 @@ Crafty.c("Critter", {
 			this.outline.y = this.y;
 			
 			if (this.redLayer.exists) {
-			// This is the flying physics. 
-				this.y -= 4;
-				var outOfWall = false;
-				while (!outOfWall) {
-					var inWall = false;
-					for (var i = 0; i < this.hit("solid").length; i++) {
-						if (this.hit("solid")[i]["obj"].exists) {
-							inWall = true;
-							this.y += 1;
-						}
-					}				
-					outOfWall = !inWall;			    
-				}
-			 
-			} else {
-			// This is the falling physics.
+			    this.ySpeed -= 0.1;			 
 
-				this.y += 4;
-				var outOfWall = false;
-				while (!outOfWall) {
-					var inWall = false;
-					for (var i = 0; i < this.hit("solid").length; i++) {
-						if (this.hit("solid")[i]["obj"].exists) {
-							inWall = true;
-							this.y -= 1;
-						}
-					}				
-					outOfWall = !inWall;			    
+				if (this.ySpeed < -4) {
+				    this.ySpeed = -4;
+				}				
+			} else {
+			    this.ySpeed += 0.1;
+				
+				if (this.ySpeed > 4) {
+				    this.ySpeed = 4;
 				}
 			}
+			
+			// This is the falling physics.
+
+			this.y += this.ySpeed;
+			var outOfWall = false;
+			var stopped = false;
+			while (!outOfWall) {
+				var inWall = false;
+				for (var i = 0; i < this.hit("solid").length; i++) {
+					if (this.hit("solid")[i]["obj"].exists) {
+						inWall = true;
+						this.y -= this.ySpeed;
+						stopped = true;
+					}
+				}				
+				outOfWall = !inWall;			    
+			}
+			if (stopped == true) {
+			    this.ySpeed = 0;
+			}
+			
 
 			
 			this.x += this.xSpeed;
@@ -208,16 +220,15 @@ Crafty.c("MouseScreen", {
 		
 			if(e.mouseButton == Crafty.mouseButtons.LEFT) {
 			    if (cursor.mode == 0) {
-					var torch = Crafty.e("2D, Canvas, Color, LightSource, Torch").attr({x: cursor.x, y: cursor.y});
-					torch.color("#FF4444");
+					var torch = Crafty.e("2D, Canvas, Sprite, redLight, LightSource, Torch").attr({x: cursor.x, y: cursor.y});
 					torch.lightColor = "red";
 					torch.lightUp();
 				} else if (cursor.mode == 1) {   				    
 				    console.log(cursor.hit("Torch")[0]["obj"][0]);
 				    cursor.hit("Torch")[0]["obj"].destroy();					
 				} else if (cursor.mode == 2) {
-					var torch = Crafty.e("2D, Canvas, Color, LightSource, Torch").attr({x: cursor.x, y: cursor.y});
-					torch.color("#4444FF");
+					var torch = Crafty.e("2D, Canvas, Sprite, blueLight, LightSource, Torch").attr({x: cursor.x, y: cursor.y});
+					//torch.color("#4444FF");
 					torch.lightColor = "blue";
 					torch.lightUp();				
 				}
@@ -250,14 +261,14 @@ Crafty.c("Cursor", {
 		}
 		
 		if (this.mode == 0) {
-		    this.color("#FF0000");
+			this.addComponent("redLight");
 			this.lit = true;
 			this.lightColor = "red";
 		} else if (this.mode == 1) {
-		    this.color("#FFFFFF");
+			this.addComponent("remove");
 			this.lit = false;
 		} else if (this.mode ==2) {
-		    this.color("#0000FF");
+			this.addComponent("blueLight");
 			this.lit = true;
 			this.lightColor = "blue";
 		}
@@ -321,7 +332,17 @@ $(document).ready(function() {
 	    redLight: [0, 0]
 	});
 	
+	Crafty.sprite(32, 32, "blueLight.png", {
+	    blueLight: [0, 0]
+	});
+
+	Crafty.sprite(32, 32, "greenLight.png", {
+	    greenLight: [0, 0]
+	});
 	
+	Crafty.sprite(32, 32, "remove.png", {
+	    remove: [0, 0]
+	});
 	
     Crafty.init(screenWidth, screenHeight);	
     Crafty.canvas.init(); 
@@ -342,6 +363,6 @@ $(document).ready(function() {
 	lightAllColors();
 
 	
-	Crafty.e("2D, Canvas, Color, Collision, LightSource, Cursor, Sprite, redLight").attr({h: 20, w: 20, x: 20, y:20}).color("#FF0000");	
+	Crafty.e("2D, Canvas, Collision, LightSource, Cursor, Sprite").attr({h: 20, w: 20, x: 20, y:20});	
 	Crafty.e("2D, Canvas, Mouse, MouseScreen").attr({x: 0, y: 0, h: screenHeight, w:screenWidth});
 });

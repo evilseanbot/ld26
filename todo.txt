@@ -1,11 +1,13 @@
 TO DO FOR GAME (By Monday, 6pm):
 =======================================
-- Get Music
-- Design a narrative
-- Draw the tiles
-- Pick which tiles are being used.
-- Pick which scenarios to do
-- Optimize / Limit Torches
-- Design Levels
-- Sound effects: Torches lit, extinguished.
-- Redesign code to support multiple types of critters.
+- Get Music (Henry?)
+- Design a narrative 
+- Draw the tiles (Henry?)
+- Pick which tiles are being used. (?)
+- Pick which scenarios to do (?)
+- Optimize / Limit Torches (?)
+- Design Levels (Chris?)
+- Sound effects: Torches lit, torches extinguished, critters rescued, critters die. (Henry? Chris?)
+- Redesign code to support multiple types of critters. (Sean)
+- Program opening screen, level select.
+- Make restart button change to next level.
