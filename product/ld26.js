@@ -316,6 +316,10 @@ $(document).ready(function() {
 	Crafty.sprite(192, 192, "pickleDarkLayer.png", {
 	    pickleDarkLayer: [0, 0]
 	});
+
+	Crafty.sprite(32, 32, "redLight.png", {
+	    redLight: [0, 0]
+	});
 	
 	
 	
@@ -338,6 +342,6 @@ $(document).ready(function() {
 	lightAllColors();
 
 	
-	Crafty.e("2D, Canvas, Color, Collision, LightSource, Cursor").attr({h: 20, w: 20, x: 20, y:20}).color("#FF0000");	
+	Crafty.e("2D, Canvas, Color, Collision, LightSource, Cursor, Sprite, redLight").attr({h: 20, w: 20, x: 20, y:20}).color("#FF0000");	
 	Crafty.e("2D, Canvas, Mouse, MouseScreen").attr({x: 0, y: 0, h: screenHeight, w:screenWidth});
 });
