@@ -206,12 +206,5 @@ $(document).ready(function() {
 	
     Crafty.e("Level1");
 	
-	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -800, x: 0});
-	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -1600, x: -200});
-	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -2400, x: -400});
-	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -3200, x: -600});
-	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -4000, x:-800});
-	
-	
 	Crafty.e("2D, Canvas, Mouse, MouseScreen").attr({x: 0, y: 0, h: screenHeight, w:screenWidth});
 });

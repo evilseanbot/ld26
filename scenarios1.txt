@@ -3,6 +3,7 @@ Pickledog Parade:
 -Some have wings and others don't. The wings are not visible under all color conditions. Alternatively: They only act as though they have wings under some color conditions.
 -If one encounters a wall it turns and moves the other direction.
 -If one walks to the end of a platform it drops, unless it has wings, in which case it continues to move forward.
+(Sean's Suggestion): The pickledogs automatically ascend when their wings are visible.
 -If a winged pickledog encounters a wall while flying it drops.
 -Some platforms and walls can be made to exist or not exist depending on the color conditions.
 -The object is to have all the pickledogs collected into the pickledog house at the bottom of the screen, without them touching hazards.
