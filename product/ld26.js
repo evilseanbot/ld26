@@ -358,7 +358,7 @@ $(document).ready(function() {
 	
 //    Crafty.e("Level_BrickPen");
 //    Crafty.e("Level_StraightWalk");
-    Crafty.e("Level_SteelDoors");
+    Crafty.e("Level_steelDoors2");
 	
 	lightAllColors();
 

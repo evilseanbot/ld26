@@ -1,6 +1,19 @@
 Crafty.c("Level_steelDoors2", {
     init: function() {
 	
+	Crafty.sprite(64, 64, "grassBlock.png", {
+	    grassBlock: [0, 0]
+	});
+
+		Crafty.sprite(64, 64, "thornHazard.png", {
+	    thornHazard: [0, 0]
+	});
+
+		Crafty.sprite(64, 64, "steelWall.png", {
+	    steelWall: [0, 0]
+	});
+
+	greenAlwaysOn = true;	
 	    // Start of first platform.
 		Crafty.e("2D, Canvas, Sprite, start, red, Lightable, LightSource").attr({x: 0, y:1*64, alpha: 0});		
 		
@@ -74,12 +87,13 @@ Crafty.c("Level_steelDoors2", {
 		Crafty.e("2D, Canvas, Sprite, exit, red, Lightable, LightSource").attr({x: 16*64, y:6*64, alpha: 0});				
 		
 		
-		
+		/*
 		for (var mapX = 0; mapX < 19; mapX++) {
 			for (var mapY = 0; mapY < 2; mapY++) {
 				Crafty.e("2D, Canvas, Sprite, sky, blue, Lightable").attr({x: mapX*64, y: mapY*64, alpha: 0});
 			}
 		}
+		*/
 
         	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -800, x: 0});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -1600, x: -200});
