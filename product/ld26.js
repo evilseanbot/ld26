@@ -42,26 +42,6 @@ Crafty.c("Critter", {
 				}				
 				outOfWall = !inWall;			    
 			}
-			
-			/*
-			for (var i = 0; i < this.hit("brickWall").length; i++) {
-			    while 
-			}
-			
-			this.attr({y: this.y+4});
-		    if (this.hit("brickWall") {
-			    var inWall = false;
-				for (var i = 0; i < this.hit("brickWall").length; i++) {
-				    if (this.hit("brickWall")[i]["obj"].exists) {
-					    inWall = true;
-					}
-				}
-				if (inWall = true) {
-			    this.y -=1;
-				
-				}				
-			}
-			*/
 		})
 	}
 });

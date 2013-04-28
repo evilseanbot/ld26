@@ -1,3 +1,5 @@
+== SOLVED ==
+
 * How do you move around?
   - A character that only moves side to side, doesn't jump?
   - A jumping character that moves side to side?
@@ -21,3 +23,6 @@
 * What is the goal of the game?
   - Reach the exit
   - Heard your collection of nonesense beasts.
+  
+* What things are turned on/off?
+  - Things near torches, in 
