@@ -1,0 +1,25 @@
+Rooster Walk:
+-Roosters will emerge from a start point (dropping when they reach the end of a platform, turning if they reach a wall).
+-Roosters will stop and crow if the color conditions cause the sun to be newly visible. Then they will continue moving.
+-Some platforms have wolves hiding in bushes. If a rooster crows when in range, a wolf will come out and eat it.
+-Some platforms and wall don't exist under some color conditions; some platforms move (requiring roosters to crow while it gets back into position).
+-The object is to get the roosters to the exit barn.
+
+Dude Barf:
+-The dude barfer will only barf dudes under some color conditions.
+-The barfed dudes will drop straight down.
+-Dudes that touch the moving platforms get squished.
+-The object is to get dudes to reach the bottom of the screen.
+
+Spooky chase:
+-The scary furry-face man chases the player.
+-The sffm occasionally charges.
+-The sffm is only visible under some color conditions.
+-The object is to get the sffm to charge into the trap without letting him catch the player.
+
+Skeleton Peril:
+-Skeletons emerge from a starting point (dropping when they reach the end of a platform, turning if they reach a wall).
+-Under some color conditions, only the feet of a skeleton is visible.
+-If the skeleton is fully visible when it encounters a swinging pendulum, the skeleton is scattered.
+-If a skeleton is fully visible when it encounters a short step it will walk over the short step. Otherwise it turns around.
+-The object is to get skeletons to reach the exit mausoleum unscattered.

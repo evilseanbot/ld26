@@ -1,0 +1,40 @@
+Pickledog Parade:
+-Pickledogs emerge from a starting point and proceed sideways.
+-Some have wings and others don't. The wings are not visible under all color conditions. Alternatively: They only act as though they have wings under some color conditions.
+-If one encounters a wall it turns and moves the other direction.
+-If one walks to the end of a platform it drops, unless it has wings, in which case it continues to move forward.
+-If a winged pickledog encounters a wall while flying it drops.
+-Some platforms and walls can be made to exist or not exist depending on the color conditions.
+-The object is to have all the pickledogs collected into the pickledog house at the bottom of the screen, without them touching hazards.
+
+Catopus and Mouse:
+-Catopi have sensing antennae.
+-These antennae have an "active" waving state and an "inactive" still state.
+-The antennae are only visible under some color conditions.
+-When in the "active" state, the player is close enough and on the same level catopi will move toward the player.
+-If a catopus reachs the end of a platform it will drop.
+-Otherwise catopi will remain stationary.
+-The object is to collect the catopi into the catopi nest without them encountering obstacles or letting them catch the player.
+
+Exploding Shark-horses:
+-Sharkhorses emerge from a starting point and proceed sideways (turning at walls, dropping at the end of platforms).
+-When a sharkhorse encounters a bomb it will put it in its mouth.
+-If the fuse of a bomb is burned down the bomb explodes, killing the sharkhorse.
+-The fuse spark is not visible under all color conditions.
+-The bombs can be extinguished by opening a water spout under them as they move (open under some color conditions).
+-If the water spouts are open for too long they will exhaust the sharkhorse tank.
+-The object is to have the sharkhorses reach the tank without emptying it.
+
+Sharkmarine:
+-The sharkmarine moves forward in one direction.
+-If the sharkmarine touches either a mine or a wall it dies.
+-Mines float to the length of their chains or until they reach the surface of the water, whichever comes first.
+-Walls will disappear or appear under different color conditions.
+-If a wall lines part of the bottom of the tank on the current screen the water level will decrease. If a cloud appears according to the color conditions the water level rises.
+-The object is to get the sharkmarine to the end of the stage.
+
+Deer Rip-cord:
+-Deer move down rip cords if the color condition is right.
+-If the color condition is otherwise, the cord vanishes and the deer falls through it.
+-Falling deer will catch unto the next rip cord if the color condition makes it exist.
+-The object is to get the deer to reach the exit at the bottom without them reaching the end of their rip cords.
