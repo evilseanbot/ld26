@@ -77,12 +77,20 @@ Crafty.c("Level_BrickPen", {
 			}
 		}
 		*/
-
+		
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: 1*64, x: 1*64}).wakeupTime = 100;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: 1*64, x: 1*64}).wakeupTime = 300;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: 1*64, x: 1*64}).wakeupTime = 500;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: 1*64, x: 1*64}).wakeupTime = 700;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: 1*64, x: 1*64}).wakeupTime = 900;
+		
+            /*
         	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -800, x: -200});
         	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -1600, x: -400});			
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -2400, x: -600});
         	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -3200, x: -800});						
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -4000, x:-1000});		
+			*/
 			
 		Crafty.audio.play("green", 1);
 	}

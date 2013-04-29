@@ -49,11 +49,18 @@ Crafty.c("Level_StraightWalk", {
 		Crafty.e("2D, Canvas, Sprite, exit").attr({x: 16*64, y:5*64, alpha: 1});				
 
 		
-        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: 0, x: -100});
+/*        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: 0, x: -100});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -800, x: -300});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -1600, x: -500});
-	        //Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -2400, x: -700});
-	        //Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -3600, x:-900});
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -2400, x: -700});
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -3600, x:-900});*/
+			
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: 5*64, x: 1*64}).wakeupTime = 100;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: 5*64, x: 1*64}).wakeupTime = 300;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: 5*64, x: 1*64}).wakeupTime = 500;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: 5*64, x: 1*64}).wakeupTime = 700;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: 5*64, x: 1*64}).wakeupTime = 900;
+			
 
 		Crafty.audio.play("red", -1);
 			

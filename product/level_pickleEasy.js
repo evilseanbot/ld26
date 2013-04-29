@@ -17,12 +17,20 @@ Crafty.c("Level_PickleEasy", {
 		
 		Crafty.e("2D, Canvas, Sprite, exit").attr({x: 16*64, y:6*64, alpha: 1});				
 
+
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: 6*64, x: 1*64}).wakeupTime = 100;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: 6*64, x: 1*64}).wakeupTime = 300;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: 6*64, x: 1*64}).wakeupTime = 500;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: 6*64, x: 1*64}).wakeupTime = 700;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: 6*64, x: 1*64}).wakeupTime = 900;
+
 		
-	        Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -800, x: -300});
+	        /*Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -800, x: -300});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -1600, x: -500});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -2400, x: -700});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -3600, x:-900});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -4400, x:-1100});
+			*/
 			
 
 		Crafty.audio.play("red", -1);

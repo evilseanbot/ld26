@@ -11,8 +11,8 @@ Crafty.c("Subshark", {
 	}, 
 	walk: function() {
         this.x -= 3;
-        if (this.x < - this.w) {
-            this.x = screenWidth + this.w;
+        if (this.x < 0) {
+            this.x = screenWidth - this.w;
         }		
 	},
 	animate: function() {
@@ -196,10 +196,13 @@ Crafty.c("Critter", {
 	darkLayer: null,
 	greenLayer: null,
 	outline: null,
-	exists: true,
+	exists: false,
 	animTimer: 0,
 	animTimerChange: 8,
 	frame: 0,
+	wakeupTimer: 0,
+	wakeupTime: 0,
+	wokeup: false,
 	walk: function() {
 			this.fall();
 
@@ -247,6 +250,14 @@ Crafty.c("Critter", {
 			}		
 	},
 	blinkOut: function() {
+		this.redLayer.destroy();
+		this.outline.destroy();
+		this.greenLayer.destroy();
+		this.darkLayer.destroy();
+		this.blueLayer.destroy();
+		this.destroy();
+
+	    /*
 		this.darkLayer.attr({x: -1000, y:0});
 		this.outline.attr({x: -1000, y: 0});
 		this.redLayer.attr({x: -1000, y: 0});
@@ -261,7 +272,7 @@ Crafty.c("Critter", {
 		this.blueLayer.removeComponent("blue");
 				
 	    this.exists = false;
-		console.log("Blinked out!");
+		console.log("Blinked out!");*/
 	},
 	fall: function() {
 		this.ySpeed += 0.15;
@@ -283,9 +294,28 @@ Crafty.c("Critter", {
 		this.outline.y = this.y;
 	
 	},
-    init: function() {		
-		
+    init: function() {							
+	
 	    this.bind("EnterFrame", function() {
+		    if (!this.wokeup) {
+		this.darkLayer.visible = false;
+		this.outline.visible = false;
+		this.redLayer.visible = false;
+		this.blueLayer.visible = false;
+		this.greenLayer.visible = false;			
+			
+			    this.wakeupTimer++;
+				if (this.wakeupTimer > this.wakeupTime) {
+				    this.wokeup = true;
+					this.exists = true;
+					this.darkLayer.visible = true;
+					this.outline.visible = true;
+					this.redLayer.visible = true;
+					this.blueLayer.visible = true;
+					this.greenLayer.visible = true;					
+				}
+			}
+		
 		    if (!this.exists) {
 			    return;
 			}

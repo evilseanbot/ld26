@@ -59,12 +59,7 @@ function startLevel() {
     //Crafty("*").destroy();
 	Crafty('obj').each(function() { this.destroy(); });
 	Crafty.audio.stop();
-	
-	if (level == 5) {
-        window.setTimeout(startLevelB, 1000);
-		return;
-	}
-	
+		
 	text = Crafty.e("2D, Canvas, Text").attr({h: 50, w:200, x: 1100, y: 0}).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
 	torchText = Crafty.e("2D, Canvas, Text").attr({h: 25, w:200, x: 1100, y: 0}).text("Torches Used:: " + torchesUsed + " / " + maxTorches).textColor("#FFFFFF");
 		
@@ -81,11 +76,7 @@ function startLevel() {
         Crafty.e("Level_SkeletonHurdles");			
 	} else if (level == 5) {
         Crafty.e("Level_PickleFlight");		
-    }		
-	/*} else if (level == 6) {
-        Crafty.e("Level_PickleCooker");			
-	}
-	*/	
+    }			
 		
 	lightAllColors();
 	Crafty.e("2D, Canvas, Collision, LightSource, Cursor, Sprite").attr({h: 20, w: 20, x: 20, y:20});	
@@ -99,44 +90,9 @@ function startLevel() {
 	} else {
     	Crafty("Cursor").changeMode();	
 	}
+	
 }
 
-function startLevelB() {
-text = Crafty.e("2D, Canvas, Text").attr({h: 50, w:200, x: 1100, y: 0}).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
-	torchText = Crafty.e("2D, Canvas, Text").attr({h: 25, w:200, x: 1100, y: 0}).text("Torches Used:: " + torchesUsed + " / " + maxTorches).textColor("#FFFFFF");
-		
-	if (level == 0) {
-        Crafty.e("Level_StraightWalk");
-		simpleMode = true;
-	} else if (level == 1) {
-        Crafty.e("Level_BrickPen");				
-	} else if (level == 2) {
-        Crafty.e("Level_ThornValley");		
-	} else if (level == 3) {
-        Crafty.e("Level_PickleEasy");			
-	} else if (level == 4) {
-        Crafty.e("Level_SkeletonHurdles");			
-	} else if (level == 5) {
-        Crafty.e("Level_PickleFlight");		
-    }		
-	/*} else if (level == 6) {
-        Crafty.e("Level_PickleCooker");			
-	}
-	*/	
-		
-	lightAllColors();
-	Crafty.e("2D, Canvas, Collision, LightSource, Cursor, Sprite").attr({h: 20, w: 20, x: 20, y:20});	
-	Crafty.e("2D, Canvas, Mouse, MouseScreen").attr({x: 0, y: 0, h: screenHeight, w:screenWidth});
-	Crafty.e("2D, Canvas, RestartButton, Mouse").attr({h: 50, w:100});	
-	
-	if (simpleMode) {
-	    Crafty("Cursor").mode = -1;
-		Crafty("Cursor").modes = 1;
-    	Crafty("Cursor").changeMode();
-	} else {
-    	Crafty("Cursor").changeMode();	
-	}
-}
 
 $(document).mousemove(function(e){
       if (!smallScreen) {

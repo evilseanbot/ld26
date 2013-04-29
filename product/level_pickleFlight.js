@@ -54,16 +54,23 @@ Crafty.c("Level_PickleFlight", {
 	for (var i = 0; i < Crafty("thornHazard").length; i++) {	 			
 	    Crafty(Crafty("thornHazard")[i]).exists = true;
 	}
-		
 
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: 6*64, x: 1*64}).wakeupTime = 100;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: 6*64, x: 1*64}).wakeupTime = 300;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: 6*64, x: 1*64}).wakeupTime = 500;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: 6*64, x: 1*64}).wakeupTime = 700;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: 6*64, x: 1*64}).wakeupTime = 900;
+	
+/*
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -800, x: -400});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -1600, x: -600});
 	        //Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -2400, x: -800});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -3600, x:-1000});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -4400, x:-1200});		
-	        Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -5200, x:-1400});					
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, Pickledog").attr({y: -5200, x:-1400});				
+*/			
 			
-	        Crafty.e("2D, Canvas, Collision, Critter, Subshark, shark").attr({y: 0, x: 1200});
+	        Crafty.e("2D, Canvas, Collision, Critter, Subshark, shark").attr({y: 0, x: 1000});
 			
 			
 		Crafty.audio.play("blue", -1);						
