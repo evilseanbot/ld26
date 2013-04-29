@@ -6,8 +6,10 @@ TO DO FOR GAME (By Monday, 6pm):
 - Program opening screen
 - Incorperate Animations.
 - Add sub Shark
-- Implement Henry's tiles.
 - Fix skeleton
+
+- There seems to be a period when starting a new level that things are slow. Put down some kind of interstitial screen before that.
+
 
 - System for limiting what kind of lights/Modes you can use? (Probably just for first level)
 - Design More levels

@@ -161,6 +161,8 @@ Crafty.c("Level_ThornValley", {
 	for (var i = 0; i < Crafty("grassBlock").length; i++) {	 			
 	    Crafty(Crafty("grassBlock")[i]).exists = true;
 	}
+	
+	
 		
         	Crafty.e("2D, Canvas, Color, Collision, Critter, MiniHead").attr({y: -800, x: 0});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, MiniHead").attr({y: -1600, x: -200});

@@ -67,7 +67,7 @@ var crittersRescued = 0;
 var requiredRescued = 2;
 var screenWidth = 1200;
 var screenHeight = 600;
-var level = 2;
+var level = 0;
 
 var greenAlwaysOn = false;
 var blueAlwaysOn = false;
@@ -290,7 +290,7 @@ $(document).ready(function() {
 	    guardRail: [0, 0]
 	});
 
-	Crafty.sprite(128, 128, "start.png", {
+	Crafty.sprite(128, 128, "enter.png", {
 	    start: [0, 0]
 	});
 
