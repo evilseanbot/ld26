@@ -1,6 +1,8 @@
 Crafty.c("Level_BrickPen", {
     init: function() {
 	
+		Crafty.e("2D, Canvas, Sprite, secondLevelHelp").attr({x: 11*64, y:0*64, h:400*0.6, w:451*0.6, alpha: 1});							
+	
 	    // Start of first platform.
 		Crafty.e("2D, Canvas, Sprite, start").attr({x: 0, y:1*64, alpha: 1});		
 		
@@ -76,9 +78,11 @@ Crafty.c("Level_BrickPen", {
 		}
 		*/
 
-        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -800, x: 0});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -2400, x: -400});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -4000, x:-800});		
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -800, x: -200});
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -1600, x: -400});			
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -2400, x: -600});
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -3200, x: -800});						
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -4000, x:-1000});		
 			
 		Crafty.audio.play("green", 1);
 	}

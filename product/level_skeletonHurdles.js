@@ -76,7 +76,8 @@ Crafty.c("Level_SkeletonHurdles", {
 		Crafty.e("2D, Canvas, Sprite, brickWall, red, solid, Lightable").attr({x: 7*64, y:8*64, alpha: 0});
 		
 		
-		Crafty.e("2D, Canvas, Sprite, exit").attr({x: 0*64, y:6*64, alpha: 1});	
+		Crafty.e("2D, Canvas, Sprite, exit").attr({x: 0*64, y:6*64, alpha: 1}).flip("X");	
+		
 		
 		/*
 		for (var mapX = 0; mapX < 19; mapX++) {
@@ -96,6 +97,6 @@ Crafty.c("Level_SkeletonHurdles", {
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Skeleton").attr({y: -3200, x: -800});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Skeleton").attr({y: -4000, x:-1000});		
 			
-		Crafty.audio.play("red", -1);			
+		Crafty.audio.play("green", -1);			
 	}
 });

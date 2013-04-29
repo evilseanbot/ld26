@@ -1,14 +1,7 @@
 TO DO FOR GAME (By Monday, 6pm):
 =======================================
 - Optimize Performance.
-- Program opening screen
-- Incorperate Animations.
-- Add sub Shark
-- Fix skeleton
-
 - There seems to be a period when starting a new level that things are slow. Put down some kind of interstitial screen before that.
-
-- System for limiting what kind of lights/Modes you can use? (Probably just for first level)
-- Design More levels
-
-
+- Make expanded Next Level button look better.
+- Last level very hard to play.
+-- Watch out for people with smaller browser windows.

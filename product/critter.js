@@ -1,3 +1,25 @@
+Crafty.c("Subshark", {
+    init: function() {
+	    var height = 114;
+		var width = 189;
+	    this.attr({h: height, w: width, alpha: 0});
+		this.darkLayer = Crafty.e("2D, Canvas, Sprite, subsharkDarkLayer").attr({h: height, w:width, alpha: 1});				
+		this.greenLayer = Crafty.e("2D, Canvas, Sprite, subsharkGreenLayer, green, Lightable").attr({h: height, w:width, alpha: 0});						
+		this.redLayer = Crafty.e("2D, Canvas, Sprite, subsharkRedLayer, red, Lightable").attr({h: height, w:width, alpha: 0});		
+		this.blueLayer = Crafty.e("2D, Canvas, Sprite, subsharkBlueLayer, blue, Lightable").attr({h: height, w:width, alpha: 0});		
+		this.outline = Crafty.e("2D, Canvas, Sprite, subsharkOutline").attr({h: height, w: width, alpha: 1});				
+	}, 
+	walk: function() {
+        this.x -= 3;
+        if (this.x < - this.w) {
+            this.x = screenWidth + this.w;
+        }		
+	},
+	animate: function() {
+	    
+	}
+});
+
 Crafty.c("Skeleton", {
     tall: true,
 	attachLayers: function() {
@@ -27,8 +49,8 @@ Crafty.c("Skeleton", {
 	},
 	
     init: function() {
-	    var height = 189;
-		var width = 76;
+	    var height = 188;
+		var width = 77;
 	    this.attr({h: height, w: width, alpha: 0});
 		this.darkLayer = Crafty.e("2D, Canvas, Sprite, skeletonDarkLayer").attr({h: height, w:width, alpha: 1});				
 		this.redLayer = Crafty.e("2D, Canvas, Sprite, skeletonRedLayer, red, Lightable").attr({h: height, w:width, alpha: 0});		
@@ -45,7 +67,22 @@ Crafty.c("Skeleton", {
 				this.attr({h: 62, y: this.y+125});
 			}
 		}); 
-	}
+	},
+	animate: function() {
+        if (this.frame == 0) {
+		    this.darkLayer.addComponent("skeletonDarkLayer");
+		    this.redLayer.addComponent("skeletonRedLayer");
+		    this.greenLayer.addComponent("skeletonGreenLayer");
+		    this.blueLayer.addComponent("skeletonBlueLayer");
+		    this.outline.addComponent("skeletonOutline");
+        } else if (this.frame == 1) {
+		    this.darkLayer.addComponent("skeletonDarkLayer2");
+		    this.redLayer.addComponent("skeletonRedLayer2");
+		    this.greenLayer.addComponent("skeletonGreenLayer2");
+		    this.blueLayer.addComponent("skeletonBlueLayer2");
+		    this.outline.addComponent("skeletonOutline2"); 
+        }		
+	}	
 });
 
 Crafty.c("MiniHead", {
@@ -58,6 +95,25 @@ Crafty.c("MiniHead", {
 		this.blueLayer = Crafty.e("2D, Canvas, Sprite, headBlueLayer, blue, Lightable").attr({h: height, w:width, alpha: 0});		
 		this.greenLayer = Crafty.e("2D, Canvas, Sprite, headGreenLayer, green, Lightable").attr({h: height, w:width, alpha: 0});				
 		this.outline = Crafty.e("2D, Canvas, Sprite, headOutline").attr({h: height, w: width, alpha: 1});				
+	},
+	animate: function() {
+	
+	    var height = 93/2;
+		var width = 58/2;
+		
+        if (this.frame == 0) {
+		    this.darkLayer.addComponent("headDarkLayer").attr({h: height, w: width});
+		    this.redLayer.addComponent("headRedLayer").attr({h: height, w: width});
+		    this.greenLayer.addComponent("headGreenLayer").attr({h: height, w: width});
+		    this.blueLayer.addComponent("headBlueLayer").attr({h: height, w: width});
+		    this.outline.addComponent("headOutline").attr({h: height, w: width});
+        } else if (this.frame == 1) {
+		    this.darkLayer.addComponent("headDarkLayer2").attr({h: height, w: width});
+		    this.redLayer.addComponent("headRedLayer2").attr({h: height, w: width});
+		    this.greenLayer.addComponent("headGreenLayer2").attr({h: height, w: width});
+		    this.blueLayer.addComponent("headBlueLayer2").attr({h: height, w: width});
+		    this.outline.addComponent("headOutline2").attr({h: height, w: width}); 
+        }		
 	}
 });
 
@@ -72,10 +128,25 @@ Crafty.c("Head", {
 		this.blueLayer = Crafty.e("2D, Canvas, Sprite, headBlueLayer, blue, Lightable").attr({h: height, w:width, alpha: 0});		
 		this.greenLayer = Crafty.e("2D, Canvas, Sprite, headGreenLayer, green, Lightable").attr({h: height, w:width, alpha: 0});				
 		this.outline = Crafty.e("2D, Canvas, Sprite, headOutline").attr({h: height, w: width, alpha: 1});				
+	},
+	animate: function() {
+        if (this.frame == 0) {
+		    this.darkLayer.addComponent("headDarkLayer");
+		    this.redLayer.addComponent("headRedLayer");
+		    this.greenLayer.addComponent("headGreenLayer");
+		    this.blueLayer.addComponent("headBlueLayer");
+		    this.outline.addComponent("headOutline");
+        } else if (this.frame == 1) {
+		    this.darkLayer.addComponent("headDarkLayer2");
+		    this.redLayer.addComponent("headRedLayer2");
+		    this.greenLayer.addComponent("headGreenLayer2");
+		    this.blueLayer.addComponent("headBlueLayer2");
+		    this.outline.addComponent("headOutline2"); 
+        }		
 	}
 });
 
-Crafty.c("PickleDog", {
+Crafty.c("Pickledog", {
     fall: function() {
 		if (this.redLayer.exists) {
 			this.ySpeed -= 0.15;			 
@@ -92,13 +163,28 @@ Crafty.c("PickleDog", {
 		}		
 	},
     init: function() {
-	    var size = 1.5*64;
+	    var size = 2*64;
 	    this.attr({h: size, w: size, alpha: 0});
-		this.darkLayer = Crafty.e("2D, Canvas, Sprite, pickleDarkLayer").attr({h: size, w:size, alpha: 1});				
-		this.redLayer = Crafty.e("2D, Canvas, Sprite, pickleRedLayer, red, Lightable").attr({h: size, w:size, alpha: 0});		
-		this.blueLayer = Crafty.e("2D, Canvas, Sprite, pickleBlueLayer, blue, Lightable").attr({h: size, w:size, alpha: 0});		
-		this.greenLayer = Crafty.e("2D, Canvas, Sprite, pickleGreenLayer, green, Lightable").attr({h: size, w:size, alpha: 0});				
-		this.outline = Crafty.e("2D, Canvas, Sprite, pickleOutline").attr({h: size, w: size, alpha: 1});				
+		this.darkLayer = Crafty.e("2D, Canvas, Sprite, pickledogDarkLayer").attr({h: size, w:size, alpha: 1});				
+		this.redLayer = Crafty.e("2D, Canvas, Sprite, pickledogRedLayer, red, Lightable").attr({h: size, w:size, alpha: 0});		
+		this.blueLayer = Crafty.e("2D, Canvas, Sprite, pickledogBlueLayer, blue, Lightable").attr({h: size, w:size, alpha: 0});		
+		this.greenLayer = Crafty.e("2D, Canvas, Sprite, pickledogGreenLayer, green, Lightable").attr({h: size, w:size, alpha: 0});				
+		this.outline = Crafty.e("2D, Canvas, Sprite, pickledogOutline").attr({h: size, w: size, alpha: 1});				
+	},
+	animate: function() {
+        if (this.frame == 0) {
+		    this.darkLayer.addComponent("pickledogDarkLayer");
+		    this.redLayer.addComponent("pickledogRedLayer");
+		    this.greenLayer.addComponent("pickledogGreenLayer");
+		    this.blueLayer.addComponent("pickledogBlueLayer");
+		    this.outline.addComponent("pickledogOutline");
+        } else if (this.frame == 1) {
+		    this.darkLayer.addComponent("pickledogDarkLayer2");
+		    this.redLayer.addComponent("pickledogRedLayer2");
+		    this.greenLayer.addComponent("pickledogGreenLayer2");
+		    this.blueLayer.addComponent("pickledogBlueLayer2");
+		    this.outline.addComponent("pickledogOutline2"); 
+        }		
 	}
 });
 
@@ -110,37 +196,11 @@ Crafty.c("Critter", {
 	darkLayer: null,
 	greenLayer: null,
 	outline: null,
-	fall: function() {
-		this.ySpeed += 0.15;
-		
-		if (this.ySpeed > 6) {
-			this.ySpeed = 6;
-		}
-	},
-	attachLayers: function() {
-		this.darkLayer.x = this.x;
-		this.darkLayer.y = this.y;
-		this.redLayer.x = this.x;
-		this.redLayer.y = this.y;
-		this.blueLayer.x = this.x;
-		this.blueLayer.y = this.y;
-		this.greenLayer.x = this.x;
-		this.greenLayer.y = this.y;
-		this.outline.x = this.x;
-		this.outline.y = this.y;
-	
-	},
-    init: function() {		
-		
-	    this.bind("EnterFrame", function() {
-			
-			this.attachLayers();
-			this.redLayer.reLight();
-			this.blueLayer.reLight();			
-			this.greenLayer.reLight();			
-									
-			// This is the falling physics.
-			
+	exists: true,
+	animTimer: 0,
+	animTimerChange: 8,
+	frame: 0,
+	walk: function() {
 			this.fall();
 
 			this.y += this.ySpeed;
@@ -158,7 +218,7 @@ Crafty.c("Critter", {
 				outOfWall = !inWall;			    
 			}
 			if (stopped == true) {
-			    this.ySpeed = 0;
+				this.ySpeed = 0;
 			}
 			
 
@@ -184,34 +244,92 @@ Crafty.c("Critter", {
 					}
 					
 				}
-			}							
-			
-			if (this.hit("hazard")) {
-				this.darkLayer.destroy();
-				this.outline.destroy();
-				this.redLayer.destroy();
-				this.blueLayer.destroy();				
-				this.greenLayer.destroy();
-			    this.destroy();
+			}		
+	},
+	blinkOut: function() {
+		this.darkLayer.attr({x: -1000, y:0});
+		this.outline.attr({x: -1000, y: 0});
+		this.redLayer.attr({x: -1000, y: 0});
+		this.blueLayer.attr({x: -1000, y: 0});				
+		this.greenLayer.attr({x: -1000, y: 0});
+
+		this.redLayer.removeComponent("Lightable");
+		this.redLayer.removeComponent("red");
+		this.greenLayer.removeComponent("Lightable");
+		this.greenLayer.removeComponent("green");
+		this.blueLayer.removeComponent("Lightable");
+		this.blueLayer.removeComponent("blue");
+				
+	    this.exists = false;
+		console.log("Blinked out!");
+	},
+	fall: function() {
+		this.ySpeed += 0.15;
+		
+		if (this.ySpeed > 6) {
+			this.ySpeed = 6;
+		}
+	},
+	attachLayers: function() {
+		this.darkLayer.x = this.x;
+		this.darkLayer.y = this.y;
+		this.redLayer.x = this.x;
+		this.redLayer.y = this.y;
+		this.blueLayer.x = this.x;
+		this.blueLayer.y = this.y;
+		this.greenLayer.x = this.x;
+		this.greenLayer.y = this.y;
+		this.outline.x = this.x;
+		this.outline.y = this.y;
+	
+	},
+    init: function() {		
+		
+	    this.bind("EnterFrame", function() {
+		    if (!this.exists) {
+			    return;
 			}
 			
+			this.animTimer++;
+			
+			if (this.animTimer > this.animTimerChange) {
+			    this.animTimer = 0;
+				this.frame++;
+				if (this.frame > 1) {
+				    this.frame = 0;
+				}
+				this.animate();
+			}
+			
+			this.attachLayers();
+			this.redLayer.reLight();
+			this.blueLayer.reLight();			
+			this.greenLayer.reLight();			
+
+			if (this.hit("hazard") || (this.hit("shark") )) {
+				Crafty.audio.play("critterdies", 1);
+				this.blinkOut();				
+			}
+			
+			// This is the falling physics.
+			
+			this.walk();
+			
+						
+			
+
+			
 			if (this.hit("exit")) {
-			    Crafty.audio.play("rescue", 1);			
-			    crittersRescued++;
-			    text.destroy();
-	            text = Crafty.e("2D, Canvas, Text").attr({h:50, w:100, x: 1100, y: 0 }).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
-				this.darkLayer.destroy();
-				this.outline.destroy();
-				this.redLayer.destroy();
-				this.blueLayer.destroy();				
-				this.greenLayer.destroy();
-			    this.destroy();
+				Crafty.audio.play("rescue", 1);			
+				crittersRescued++;
+				text.destroy();
+				text = Crafty.e("2D, Canvas, Text").attr({h:50, w:100, x: 1100, y: 0 }).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");					
+				this.blinkOut();
 			}
 			
 			if (this.y > 600) {
-			    console.log("Dying!");
-			    Crafty.audio.play("critterdies", 1);
-				this.destroy();
+				Crafty.audio.play("critterdies", 1);
+				this.blinkOut();
 			}
 		})
 	}
