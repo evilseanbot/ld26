@@ -1,4 +1,4 @@
-Crafty.c("Level_steelDoors2", {
+Crafty.c("Level_ThornValley", {
     init: function() {
 	
 	Crafty.sprite(64, 64, "grassBlock.png", {
@@ -111,10 +111,10 @@ Crafty.c("Level_steelDoors2", {
 		}
 		*/
 
-        	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -800, x: 0});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -1600, x: -200});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -2400, x: -400});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -3200, x: -600});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -4000, x:-800});		
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -800, x: 0});
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -1600, x: -200});
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -2400, x: -400});
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -3200, x: -600});
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -4000, x:-800});		
 	}
 });
