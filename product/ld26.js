@@ -11,14 +11,12 @@ function lightAllColors() {
 	for (var i = 0; i < Crafty("green").length; i++) {	 			
 		Crafty(Crafty("green")[i]).reLight();
 	}
-		
 	for (var i = 0; i < Crafty("red").length; i++) {	 			
 	    Crafty(Crafty("red")[i]).reLight();
 	}
 	for (var i = 0; i < Crafty("blue").length; i++) {	 			
 	    Crafty(Crafty("blue")[i]).reLight();
 	}
-	
 }
 
 function startLevel() {
@@ -26,8 +24,9 @@ function startLevel() {
     requiredRescued = 2;
 	
 	torchesUsed = 0;
-	maxTorches = 4;
+	maxTorches = 3;
 	greenAlwaysOn = false;
+	blueAlwaysOn = false;
 
     //Crafty("*").destroy();
 	Crafty('obj').each(function() { this.destroy(); });
@@ -40,6 +39,8 @@ function startLevel() {
         Crafty.e("Level_BrickPen");	
 	} else if (level == 2) {
         Crafty.e("Level_ThornValley");		
+	} else if (level == 3) {
+        Crafty.e("Level_SkeletonHurtles");			
 	}
 		
 	lightAllColors();
@@ -64,9 +65,10 @@ var crittersRescued = 0;
 var requiredRescued = 2;
 var screenWidth = 1200;
 var screenHeight = 600;
-var level = 1;
+var level = 2;
 
 var greenAlwaysOn = false;
+var blueAlwaysOn = false;
 
 Crafty.c("RestartButton", {
     box: null,
@@ -105,7 +107,7 @@ Crafty.c("RestartButton", {
 Crafty.c("Lightable", {
     reLight: function() {
 	
-	    if (this.has("green") && greenAlwaysOn) {
+	    if ((this.has("green") && greenAlwaysOn) || (this.has("blue") && blueAlwaysOn)) {
 		    this.alpha = 1;
 			this.exists = true;
 			return;
@@ -189,13 +191,19 @@ Crafty.c("MouseScreen", {
 				} else if (cursor.mode == 2) {
 				    if (torchesUsed < maxTorches) {				
 						var torch = Crafty.e("2D, Canvas, Sprite, blueLight, LightSource, blueLightSource, Torch").attr({x: cursor.x, y: cursor.y});
-						//torch.color("#4444FF");
 						torch.lightColor = "blue";
 						torch.lightUp();				
 						torchesUsed++;
-					}
-					
+					}					
+				} else if (cursor.mode == 3) {
+				    if (torchesUsed < maxTorches) {				
+						var torch = Crafty.e("2D, Canvas, Sprite, greenLight, LightSource, greenLightSource, Torch").attr({x: cursor.x, y: cursor.y});
+						torch.lightColor = "green";
+						torch.lightUp();				
+						torchesUsed++;
+					}					
 				}
+				
 				
 			} else if (e.mouseButton == Crafty.mouseButtons.RIGHT) {
 			    cursor.changeMode();
@@ -213,19 +221,13 @@ Crafty.c("MouseScreen", {
 
 Crafty.c("Cursor", {
     mode: 0,
-	modes: 3,
+	modes: 4,
 	setLightSource: function(color) {
 	    this.removeComponent("redLightSource");
 		this.removeComponent("blueLightSource");
 		this.removeComponent("greenLightSource");
 		
 		this.addComponent(color);
-	},
-    getAngle: function() {
-	    var deltaY = this.y - Crafty("Player").y;
-		var deltaX = this.x - Crafty("Player").x;
-        var angleInDegrees = Math.atan2(deltaY, deltaX) * 180 / Math.PI	
-		return angleInDegrees;
 	},
 	changeMode: function() {
 	    this.mode++;
@@ -241,11 +243,16 @@ Crafty.c("Cursor", {
 		} else if (this.mode == 1) {
 			this.addComponent("remove");
 			this.lit = false;
-		} else if (this.mode ==2) {
+		} else if (this.mode == 2) {
 			this.addComponent("blueLight");
 			this.lit = true;
 			this.lightColor = "blue";
 			this.setLightSource("blueLightSource");			
+		} else if (this.mode == 3) {
+			this.addComponent("greenLight");
+			this.lit = true;
+			this.lightColor = "green";
+			this.setLightSource("greenLightSource");			
 		}
 	},
     init: function() {
@@ -318,7 +325,28 @@ $(document).ready(function() {
 	
 	Crafty.sprite(58, 93, "headDarkLayer.png", {
 	    headDarkLayer: [0, 0]
-	});	
+	});
+
+	Crafty.sprite(76, 189, "skeletonRedLayer.png", {
+	    skeletonRedLayer: [0, 0]
+	});
+	
+	Crafty.sprite(76, 189, "skeletonBlueLayer.png", {
+	    skeletonBlueLayer: [0, 0]
+	});
+	
+	Crafty.sprite(76, 189, "skeletonGreenLayer.png", {
+	    skeletonGreenLayer: [0, 0]
+	});
+
+	Crafty.sprite(76, 189, "skeletonOutline.png", {
+	    skeletonOutline: [0, 0]
+	});
+	
+	Crafty.sprite(76, 189, "skeletonDarkLayer.png", {
+	    skeletonDarkLayer: [0, 0]
+	});
+	
 
 	Crafty.sprite(32, 32, "redLight.png", {
 	    redLight: [0, 0]
