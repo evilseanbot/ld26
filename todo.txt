@@ -1,15 +1,14 @@
 TO DO FOR GAME (By Monday, 6pm):
 =======================================
 - Get Music (Henry?)
-- Design a narrative 
-- Pick which scenarios to do (?)
 - Optimize Performance.
 - Sound effects: Torches lit, torches extinguished, critters rescued, critters die. (Henry? Chris?)
 - Program opening screen
 - Incorperate Animations.
 - Add sub Shark
+- Implement Henry's tiles.
 
-- System for limiting what kind of lights you can use? (Probably just for first level)
+- System for limiting what kind of lights/Modes you can use? (Probably just for first level)
 - Design More levels
 
 

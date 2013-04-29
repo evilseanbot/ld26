@@ -41,6 +41,8 @@ function startLevel() {
         Crafty.e("Level_ThornValley");		
 	} else if (level == 3) {
         Crafty.e("Level_SkeletonHurtles");			
+	} else if (level == 4) {
+        Crafty.e("Level_PickleFlight");			
 	}
 		
 	lightAllColors();
@@ -65,7 +67,7 @@ var crittersRescued = 0;
 var requiredRescued = 2;
 var screenWidth = 1200;
 var screenHeight = 600;
-var level = 2;
+var level = 4;
 
 var greenAlwaysOn = false;
 var blueAlwaysOn = false;

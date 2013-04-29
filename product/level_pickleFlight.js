@@ -1,4 +1,4 @@
-Crafty.c("Level_steelDoors2", {
+Crafty.c("Level_PickleFlight", {
     init: function() {
 	
 	Crafty.sprite(64, 64, "grassBlock.png", {
@@ -15,7 +15,7 @@ Crafty.c("Level_steelDoors2", {
 
 	greenAlwaysOn = true;	
 	    // Start of first platform.
-		Crafty.e("2D, Canvas, Sprite, start, red, Lightable, LightSource").attr({x: 0, y:6*64, alpha: 0});		
+		Crafty.e("2D, Canvas, Sprite, start").attr({x: 0, y:6*64, alpha: 1});		
 		
 		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 0, y:8*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 1*64, y:8*64, alpha: 0});
@@ -49,7 +49,7 @@ Crafty.c("Level_steelDoors2", {
 
 		
 		
-		Crafty.e("2D, Canvas, Sprite, exit, red, Lightable, LightSource").attr({x: 14*64, y:6*64, alpha: 0});	
+		Crafty.e("2D, Canvas, Sprite, exit").attr({x: 14*64, y:6*64, alpha: 1});	
 		
 		
 		/*
@@ -60,10 +60,10 @@ Crafty.c("Level_steelDoors2", {
 		}
 		*/
 
-        	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -800, x: 0});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -1600, x: -200});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -2400, x: -400});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -3200, x: -600});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -4000, x:-800});		
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, PickleDog").attr({y: 400, x: 0});
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, PickleDog").attr({y: -400, x: -200});
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, PickleDog").attr({y: -1200, x: -400});
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, PickleDog").attr({y: -2000, x: -600});
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, PickleDog").attr({y: -2800, x:-800});		
 	}
 });
