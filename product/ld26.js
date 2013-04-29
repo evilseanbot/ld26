@@ -67,7 +67,7 @@ var crittersRescued = 0;
 var requiredRescued = 2;
 var screenWidth = 1200;
 var screenHeight = 600;
-var level = 0;
+var level = 2;
 
 var greenAlwaysOn = false;
 var blueAlwaysOn = false;
