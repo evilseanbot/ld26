@@ -100,6 +100,8 @@ Crafty.c("Level_steelDoors2", {
 		Crafty.e("2D, Canvas, Sprite, steelWall, blue, solid, Lightable").attr({x: 15*64, y:2*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, steelWall, blue, solid, Lightable").attr({x: 15*64, y:4*64, alpha: 0});			
 		
+		Crafty.e("2D, Canvas, Sprite, exit, red, Lightable, LightSource").attr({x: 15*64, y:7*64, alpha: 0});	
+		
 		
 		/*
 		for (var mapX = 0; mapX < 19; mapX++) {
