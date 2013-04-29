@@ -24,12 +24,14 @@ function startLevel() {
     requiredRescued = 2;
 	
 	torchesUsed = 0;
-	maxTorches = 3;
+	maxTorches = 4;
 	greenAlwaysOn = false;
 	blueAlwaysOn = false;
 
     //Crafty("*").destroy();
 	Crafty('obj').each(function() { this.destroy(); });
+	Crafty.audio.stop();
+	
 	text = Crafty.e("2D, Canvas, Text").attr({h: 50, w:200, x: 1100, y: 0}).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
 	torchText = Crafty.e("2D, Canvas, Text").attr({h: 25, w:200, x: 1100, y: 0}).text("Torches Used:: " + torchesUsed + " / " + maxTorches).textColor("#FFFFFF");
 		
@@ -40,7 +42,7 @@ function startLevel() {
 	} else if (level == 2) {
         Crafty.e("Level_ThornValley");		
 	} else if (level == 3) {
-        Crafty.e("Level_SkeletonHurtles");			
+        Crafty.e("Level_SkeletonHurdles");			
 	} else if (level == 4) {
         Crafty.e("Level_PickleFlight");			
 	} else if (level == 5) {
@@ -69,7 +71,7 @@ var crittersRescued = 0;
 var requiredRescued = 2;
 var screenWidth = 1200;
 var screenHeight = 600;
-var level = 5;
+var level = 0;
 
 var greenAlwaysOn = false;
 var blueAlwaysOn = false;
@@ -182,6 +184,7 @@ Crafty.c("MouseScreen", {
 			
 			    if (cursor.mode == 0) {
 				    if (torchesUsed < maxTorches) {
+			            Crafty.audio.play("torchin", 1);					
 						var torch = Crafty.e("2D, Canvas, Sprite, redLight, LightSource, redLightSource, Torch").attr({x: cursor.x, y: cursor.y});
 						torch.lightColor = "red";
 						torch.lightUp();
@@ -191,9 +194,11 @@ Crafty.c("MouseScreen", {
 				    if (cursor.hit("Torch")) {
     				    cursor.hit("Torch")[0]["obj"].destroy();					
 					    torchesUsed--;
+					    Crafty.audio.play("torchout", 1);					
 					}
 				} else if (cursor.mode == 2) {
 				    if (torchesUsed < maxTorches) {				
+			            Crafty.audio.play("torchin", 1);										
 						var torch = Crafty.e("2D, Canvas, Sprite, blueLight, LightSource, blueLightSource, Torch").attr({x: cursor.x, y: cursor.y});
 						torch.lightColor = "blue";
 						torch.lightUp();				
@@ -201,6 +206,7 @@ Crafty.c("MouseScreen", {
 					}					
 				} else if (cursor.mode == 3) {
 				    if (torchesUsed < maxTorches) {				
+			            Crafty.audio.play("torchin", 1);										
 						var torch = Crafty.e("2D, Canvas, Sprite, greenLight, LightSource, greenLightSource, Torch").attr({x: cursor.x, y: cursor.y});
 						torch.lightColor = "green";
 						torch.lightUp();				
@@ -376,6 +382,17 @@ $(document).ready(function() {
 	Crafty.sprite(32, 32, "remove.png", {
 	    remove: [0, 0]
 	});
+	
+	Crafty.audio.add({
+      rescue: ["rescue.ogg"],
+      torchin: ["torchin.ogg"],
+      torchout: ["torchout.ogg"],
+      critterdies: ["critterdies.ogg"], 
+      red: ["redSlow.ogg"],
+	  green: ["greenSlow.ogg"],
+	  blue: ["blueSlow.ogg"]
+	  
+  });  
 	
     Crafty.init(screenWidth, screenHeight);	
     Crafty.canvas.init(); 

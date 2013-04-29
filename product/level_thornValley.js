@@ -3,7 +3,7 @@ Crafty.c("Level_ThornValley", {
 
 	greenAlwaysOn = true;	
 	    // Start of first platform.
-		Crafty.e("2D, Canvas, Sprite, start").attr({x: 0, y:1*64, alpha: 1});		
+		Crafty.e("2D, Canvas, Sprite, start").attr({x: 0, y:0*64, alpha: 1});		
 		/*
 		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 0, y:2*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 0, y:4*64, alpha: 0});
@@ -170,5 +170,10 @@ Crafty.c("Level_ThornValley", {
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, MiniHead").attr({y: -2400, x: -400});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, MiniHead").attr({y: -3200, x: -600});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, MiniHead").attr({y: -4000, x:-800});		
+
+	Crafty.audio.play("blue", -1);
+			
+			
 	}
+	
 });

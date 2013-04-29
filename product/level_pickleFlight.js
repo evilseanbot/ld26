@@ -17,15 +17,15 @@ Crafty.c("Level_PickleFlight", {
 	    // Start of first platform.
 		Crafty.e("2D, Canvas, Sprite, start").attr({x: 0, y:6*64, alpha: 1});		
 		
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 0, y:8*64, alpha: 0});
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 1*64, y:8*64, alpha: 0});
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 12*64, y:3*64, alpha: 0});
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 13*64, y:3*64, alpha: 0});
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 14*64, y:3*64, alpha: 0});
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 15*64, y:3*64, alpha: 0});
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 13*64, y:8*64, alpha: 0});
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 14*64, y:8*64, alpha: 0});
-		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 15*64, y:8*64, alpha: 0});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, solid").attr({x: 0, y:8*64, alpha: 1});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, solid").attr({x: 1*64, y:8*64, alpha: 1});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, solid").attr({x: 12*64, y:3*64, alpha: 1});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, solid").attr({x: 13*64, y:3*64, alpha: 1});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, solid").attr({x: 14*64, y:3*64, alpha: 1});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, solid").attr({x: 15*64, y:3*64, alpha: 1});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, solid").attr({x: 13*64, y:8*64, alpha: 1});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, solid").attr({x: 14*64, y:8*64, alpha: 1});
+		Crafty.e("2D, Canvas, Sprite, grassBlock, solid").attr({x: 15*64, y:8*64, alpha: 1});
 
 		
 		Crafty.e("2D, Canvas, Sprite, thornHazard, green, hazard, Lightable").attr({x: 4*64, y:6*64, alpha: 0});

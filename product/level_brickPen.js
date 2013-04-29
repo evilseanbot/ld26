@@ -79,5 +79,7 @@ Crafty.c("Level_BrickPen", {
         	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -800, x: 0});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -2400, x: -400});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -4000, x:-800});		
+			
+		Crafty.audio.play("green", 1);
 	}
 });

@@ -78,16 +78,16 @@ Crafty.c("Head", {
 Crafty.c("PickleDog", {
     fall: function() {
 		if (this.redLayer.exists) {
-			this.ySpeed -= 0.1;			 
+			this.ySpeed -= 0.15;			 
 
-			if (this.ySpeed < -4) {
-				this.ySpeed = -4;
+			if (this.ySpeed < -6) {
+				this.ySpeed = -6;
 			}				
 		} else {
-			this.ySpeed += 0.1;
+			this.ySpeed += 0.15;
 			
-			if (this.ySpeed > 4) {
-				this.ySpeed = 4;
+			if (this.ySpeed > 6) {
+				this.ySpeed = 6;
 			}
 		}		
 	},
@@ -103,18 +103,18 @@ Crafty.c("PickleDog", {
 });
 
 Crafty.c("Critter", {
-    xSpeed: 1,
-	ySpeed: 4,
+    xSpeed: 1.5,
+	ySpeed: 6,
 	redLayer: null,
 	blueLayer: null,
 	darkLayer: null,
 	greenLayer: null,
 	outline: null,
 	fall: function() {
-		this.ySpeed += 0.1;
+		this.ySpeed += 0.15;
 		
-		if (this.ySpeed > 4) {
-			this.ySpeed = 4;
+		if (this.ySpeed > 6) {
+			this.ySpeed = 6;
 		}
 	},
 	attachLayers: function() {
@@ -196,6 +196,7 @@ Crafty.c("Critter", {
 			}
 			
 			if (this.hit("exit")) {
+			    Crafty.audio.play("rescue", 1);			
 			    crittersRescued++;
 			    text.destroy();
 	            text = Crafty.e("2D, Canvas, Text").attr({h:50, w:100, x: 1100, y: 0 }).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
@@ -205,6 +206,12 @@ Crafty.c("Critter", {
 				this.blueLayer.destroy();				
 				this.greenLayer.destroy();
 			    this.destroy();
+			}
+			
+			if (this.y > 600) {
+			    console.log("Dying!");
+			    Crafty.audio.play("critterdies", 1);
+				this.destroy();
 			}
 		})
 	}
