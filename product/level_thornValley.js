@@ -158,6 +158,7 @@ Crafty.c("Level_ThornValley", {
 			}
 		}
 		*/
+		
 	for (var i = 0; i < Crafty("grassBlock").length; i++) {	 			
 	    Crafty(Crafty("grassBlock")[i]).exists = true;
 	}

@@ -43,6 +43,8 @@ function startLevel() {
         Crafty.e("Level_SkeletonHurtles");			
 	} else if (level == 4) {
         Crafty.e("Level_PickleFlight");			
+	} else if (level == 5) {
+        Crafty.e("Level_PickleCooker");			
 	}
 		
 	lightAllColors();
@@ -67,7 +69,7 @@ var crittersRescued = 0;
 var requiredRescued = 2;
 var screenWidth = 1200;
 var screenHeight = 600;
-var level = 0;
+var level = 5;
 
 var greenAlwaysOn = false;
 var blueAlwaysOn = false;
