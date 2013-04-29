@@ -105,6 +105,13 @@ Crafty.c("Critter", {
 				if (this.hit("solid")[i]["obj"].exists) {
 					this.x -= (this.xSpeed*2);
 					this.xSpeed = -this.xSpeed;
+					
+					this.redLayer.flip("X");
+					this.blueLayer.flip("X");
+					this.greenLayer.flip("X");
+					this.darkLayer.flip("X");
+					this.outline.flip("X");
+					
 				}
 			}							
 			
