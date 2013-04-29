@@ -67,7 +67,7 @@ var crittersRescued = 0;
 var requiredRescued = 2;
 var screenWidth = 1200;
 var screenHeight = 600;
-var level = 4;
+var level = 0;
 
 var greenAlwaysOn = false;
 var blueAlwaysOn = false;
@@ -139,12 +139,12 @@ Crafty.c("Lightable", {
 				
     				var distance = Math.abs(xCenter - xSourceCenter) + Math.abs(yCenter - ySourceCenter);
 	    			//light += 1200000.0 / Math.pow(distance, 3);
-					light += 6000.0 / Math.pow(distance, 2);
+					light += 3000.0 / Math.pow(distance, 2);
 					
 			    }
 			}
 		}
-		if (light > 0.25) {
+		if (light > 0.1) {
 		    this.alpha = light;
 			this.exists = true;
 	    } else {
@@ -273,10 +273,19 @@ $(document).ready(function() {
 	    brickWall: [0, 0]
 	});
 
-	Crafty.sprite(64, 64, "sky.png", {
-	    sky: [0, 0]
+	Crafty.sprite(64, 64, "mushroom.png", {
+	    mushroom: [0, 0]
+	});
+	
+	Crafty.sprite(64, 64, "grassBlock.png", {
+	    grassBlock: [0, 0]
 	});
 
+		Crafty.sprite(64, 64, "thornHazard.png", {
+	    thornHazard: [0, 0]
+	});
+
+	
 	Crafty.sprite(64, 64, "guardRail.png", {
 	    guardRail: [0, 0]
 	});

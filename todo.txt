@@ -7,6 +7,7 @@ TO DO FOR GAME (By Monday, 6pm):
 - Incorperate Animations.
 - Add sub Shark
 - Implement Henry's tiles.
+- Fix skeleton
 
 - System for limiting what kind of lights/Modes you can use? (Probably just for first level)
 - Design More levels
