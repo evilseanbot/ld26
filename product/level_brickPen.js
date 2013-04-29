@@ -2,7 +2,7 @@ Crafty.c("Level_BrickPen", {
     init: function() {
 	
 	    // Start of first platform.
-		Crafty.e("2D, Canvas, Sprite, start, red, Lightable, LightSource").attr({x: 0, y:1*64, alpha: 0});		
+		Crafty.e("2D, Canvas, Sprite, start").attr({x: 0, y:1*64, alpha: 1});		
 		
 		Crafty.e("2D, Canvas, Sprite, brickWall, solid, red, Lightable").attr({x: 0, y:3*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, solid, red, Lightable").attr({x: 1*64, y:3*64, alpha: 0});
@@ -52,7 +52,7 @@ Crafty.c("Level_BrickPen", {
 		// End of second platform
 		
 		// Third platform
-		Crafty.e("2D, Canvas, Sprite, exit, red, Lightable, LightSource").attr({x: 16*64, y:6*64, alpha: 0});				
+		Crafty.e("2D, Canvas, Sprite, exit").attr({x: 16*64, y:6*64, alpha: 1});				
 		
 		Crafty.e("2D, Canvas, Sprite, brickWall, solid, red, Lightable").attr({x: 6*64, y:8*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, brickWall, solid, red, Lightable").attr({x: 7*64, y:8*64, alpha: 0});
@@ -76,10 +76,8 @@ Crafty.c("Level_BrickPen", {
 		}
 		*/
 
-        	Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -800, x: 0});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -1600, x: -200});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -2400, x: -400});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -3200, x: -600});
-	        Crafty.e("2D, Canvas, Color, Collision, Critter").attr({y: -4000, x:-800});		
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -800, x: 0});
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -2400, x: -400});
+	        Crafty.e("2D, Canvas, Color, Collision, Critter, Head").attr({y: -4000, x:-800});		
 	}
 });

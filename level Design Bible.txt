@@ -1,0 +1,11 @@
+LEVEL DESIGN BIBLE:
+1. Levels should be non-abstract, they should seem like the architecture of a place that could exist.
+  - Don't have block suspended in midair unless they seem like an object that could be suspended in midair.
+  - Have the different tiles be things that could exist together (Steel blocks on grass seems odd.)
+
+2. They should run well.
+  - RIGHT NOW this has been an issue of light sources X lightable blocks for every color.
+  - This could change when the engine is changed.
+  - Test it on my laptop to make sure.
+  
+3. They should test an understanding of the concepts more than reflexes. (Atleast to get a small number of critters rescued.)

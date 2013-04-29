@@ -29,13 +29,21 @@ function startLevel() {
     //Crafty("*").destroy();
 	Crafty('obj').each(function() { this.destroy(); });
 	text = Crafty.e("2D, Canvas, Text").attr({h: 50, w:200, x: 1100, y: 0}).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
-    Crafty.e("Level_StraightWalk");	
+	if (level == 0) {
+        Crafty.e("Level_StraightWalk");
+	} else if (level == 1) {
+        Crafty.e("Level_BrickPen");	
+	} else if (level == 2) {
+        Crafty.e("Level_steelDoors2");		
+	}
+	
+	
+    Crafty.e("Level_BrickPen");	
 	lightAllColors();
 	Crafty.e("2D, Canvas, Collision, LightSource, Cursor, Sprite").attr({h: 20, w: 20, x: 20, y:20});	
 	Crafty.e("2D, Canvas, Mouse, MouseScreen").attr({x: 0, y: 0, h: screenHeight, w:screenWidth});
 	Crafty.e("2D, Canvas, RestartButton, Mouse").attr({h: 50, w:100});	
-	
-
+	Crafty("Cursor").changeMode();
 }
 
 $(document).mousemove(function(e){
@@ -50,6 +58,7 @@ var crittersRescued = 0;
 var requiredRescued = 2;
 var screenWidth = 1200;
 var screenHeight = 600;
+var currentLevel = 0;
 
 var greenAlwaysOn = false;
 
@@ -77,112 +86,6 @@ Crafty.c("RestartButton", {
 	}
 });
 
-Crafty.c("Critter", {
-    xSpeed: 1,
-	ySpeed: 1,
-	redLayer: null,
-	blueLayer: null,
-	darkLayer: null,
-	greenLayer: null,
-	outline: null,
-    init: function() {
-	    this.attr({h: 1.5*64, w: 1.5*64, alpha: 0});
-		//this.color("#FF00FF");
-		
-		this.darkLayer = Crafty.e("2D, Canvas, Sprite, pickleDarkLayer").attr({h: 1.5*64, w:1.5*64, alpha: 1});				
-		this.redLayer = Crafty.e("2D, Canvas, Sprite, pickleRedLayer, red, Lightable").attr({h: 1.5*64, w:1.5*64, alpha: 0});		
-		this.blueLayer = Crafty.e("2D, Canvas, Sprite, pickleBlueLayer, blue, Lightable").attr({h: 1.5*64, w:1.5*64, alpha: 0});		
-		this.greenLayer = Crafty.e("2D, Canvas, Sprite, pickleGreenLayer, green, Lightable").attr({h: 1.5*64, w:1.5*64, alpha: 0});				
-		this.outline = Crafty.e("2D, Canvas, Sprite, pickleOutline").attr({h: 1.5*64, w:1.5*64, alpha: 1});		
-		
-	    this.bind("EnterFrame", function() {
-
-		    this.darkLayer.x = this.x;
-			this.darkLayer.y = this.y;
-		
-		    this.redLayer.x = this.x;
-			this.redLayer.y = this.y;
-			this.redLayer.reLight();
-			
-		    this.blueLayer.x = this.x;
-			this.blueLayer.y = this.y;
-			this.blueLayer.reLight();			
-
-		    this.greenLayer.x = this.x;
-			this.greenLayer.y = this.y;
-			this.greenLayer.reLight();			
-			
-		    this.outline.x = this.x;
-			this.outline.y = this.y;
-			
-			if (this.redLayer.exists) {
-			    this.ySpeed -= 0.1;			 
-
-				if (this.ySpeed < -4) {
-				    this.ySpeed = -4;
-				}				
-			} else {
-			    this.ySpeed += 0.1;
-				
-				if (this.ySpeed > 4) {
-				    this.ySpeed = 4;
-				}
-			}
-			
-			// This is the falling physics.
-
-			this.y += this.ySpeed;
-			var outOfWall = false;
-			var stopped = false;
-			while (!outOfWall) {
-				var inWall = false;
-				for (var i = 0; i < this.hit("solid").length; i++) {
-					if (this.hit("solid")[i]["obj"].exists) {
-						inWall = true;
-						this.y -= this.ySpeed;
-						stopped = true;
-					}
-				}				
-				outOfWall = !inWall;			    
-			}
-			if (stopped == true) {
-			    this.ySpeed = 0;
-			}
-			
-
-			
-			this.x += this.xSpeed;
-			for (var i = 0; i < this.hit("solid").length; i++) {
-				if (this.hit("solid")[i]["obj"].exists) {
-					this.x -= (this.xSpeed*2);
-					this.xSpeed = -this.xSpeed;
-				}
-			}							
-			
-			if (this.hit("hazard")) {
-				this.darkLayer.destroy();
-				this.outline.destroy();
-				this.redLayer.destroy();
-				this.blueLayer.destroy();				
-				this.greenLayer.destroy();
-			    this.destroy();
-			}
-			
-			if (this.hit("exit")) {
-			    crittersRescued++;
-			    text.destroy();
-	            text = Crafty.e("2D, Canvas, Text").attr({h:50, w:100, x: 1100, y: 0 }).text("Rescued: " + crittersRescued + " / " + requiredRescued).textColor("#FFFFFF");
-				this.darkLayer.destroy();
-				this.outline.destroy();
-				this.redLayer.destroy();
-				this.blueLayer.destroy();				
-				this.greenLayer.destroy();
-			    this.destroy();
-			}
-		})
-	}
-});
-
 Crafty.c("Lightable", {
     reLight: function() {
 	
@@ -205,7 +108,8 @@ Crafty.c("Lightable", {
 					var ySourceCenter = source.y + (source.h/2);
 				
     				var distance = Math.abs(xCenter - xSourceCenter) + Math.abs(yCenter - ySourceCenter);
-	    			light += 1200000.0 / Math.pow(distance, 3);
+	    			//light += 1200000.0 / Math.pow(distance, 3);
+					light += 6000.0 / Math.pow(distance, 2);
 			    }
 			}
 		}
@@ -350,6 +254,26 @@ $(document).ready(function() {
 	Crafty.sprite(192, 192, "pickleDarkLayer.png", {
 	    pickleDarkLayer: [0, 0]
 	});
+	
+	Crafty.sprite(58, 93, "headRedLayer.png", {
+	    headRedLayer: [0, 0]
+	});
+	
+	Crafty.sprite(58, 93, "headBlueLayer.png", {
+	    headBlueLayer: [0, 0]
+	});
+	
+	Crafty.sprite(58, 93, "headGreenLayer.png", {
+	    headGreenLayer: [0, 0]
+	});
+
+	Crafty.sprite(58, 93, "headOutline.png", {
+	    headOutline: [0, 0]
+	});
+	
+	Crafty.sprite(58, 93, "headDarkLayer.png", {
+	    headDarkLayer: [0, 0]
+	});	
 
 	Crafty.sprite(32, 32, "redLight.png", {
 	    redLight: [0, 0]

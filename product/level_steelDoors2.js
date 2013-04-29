@@ -15,7 +15,7 @@ Crafty.c("Level_steelDoors2", {
 
 	greenAlwaysOn = true;	
 	    // Start of first platform.
-		Crafty.e("2D, Canvas, Sprite, start, red, Lightable, LightSource").attr({x: 0, y:1*64, alpha: 0});		
+		Crafty.e("2D, Canvas, Sprite, start").attr({x: 0, y:-1*64, alpha: 1});		
 		
 		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 0, y:1*64, alpha: 0});
 		Crafty.e("2D, Canvas, Sprite, grassBlock, green, solid, Lightable").attr({x: 0, y:8*64, alpha: 0});

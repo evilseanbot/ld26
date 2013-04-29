@@ -1,0 +1,14 @@
+Graphics needed from Henry:
+
+Start Area: 128x128 on Ground.
+Exit Area: 128x128 on Ground.
+
+Tiles (These could be single tiles or sets of tiles that respond to tiles around them. The latter is going to look better but take more work. Do what you want.)
+
+Red brick (64x64)
+Red Guardrail (64x64)
+Green Hill (64x64)
+Green Thorns(64x64)
+Red bloody spikes (64x64)
+Blue Mushrooms (64x64)
+Green Vines (64x64)
