@@ -170,11 +170,11 @@ Crafty.c("Level_ThornValley", {
 	
 	
 		
-        	Crafty.e("2D, Canvas, Color, Collision, Critter, MiniHead").attr({y: 0, x: 1*64}).wakeupTime = 100;
-        	Crafty.e("2D, Canvas, Color, Collision, Critter, MiniHead").attr({y: 0, x: 1*64}).wakeupTime = 300;
-        	Crafty.e("2D, Canvas, Color, Collision, Critter, MiniHead").attr({y: 0, x: 1*64}).wakeupTime = 500;
-        	Crafty.e("2D, Canvas, Color, Collision, Critter, MiniHead").attr({y: 0, x: 1*64}).wakeupTime = 700;
-        	Crafty.e("2D, Canvas, Color, Collision, Critter, MiniHead").attr({y: 0, x: 1*64}).wakeupTime = 900;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Hatbird").attr({y: 0, x: 1*64}).wakeupTime = 100;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Hatbird").attr({y: 0, x: 1*64}).wakeupTime = 300;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Hatbird").attr({y: 0, x: 1*64}).wakeupTime = 500;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Hatbird").attr({y: 0, x: 1*64}).wakeupTime = 700;
+        	Crafty.e("2D, Canvas, Color, Collision, Critter, Hatbird").attr({y: 0, x: 1*64}).wakeupTime = 900;
 
 /*	        Crafty.e("2D, Canvas, Color, Collision, Critter, MiniHead").attr({y: -1600, x: -200});
 	        Crafty.e("2D, Canvas, Color, Collision, Critter, MiniHead").attr({y: -2400, x: -400});

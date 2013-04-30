@@ -537,6 +537,46 @@ $(document).ready(function() {
 	Crafty.sprite(189, 114, "subsharkDarkLayer.png", {
 	    subsharkDarkLayer: [0, 0]
 	});
+	
+	Crafty.sprite(64, 100, "hatbirdRedLayer.png", {
+	    hatbirdRedLayer: [0, 0]
+	});
+	
+	Crafty.sprite(64, 100, "hatbirdBlueLayer.png", {
+	    hatbirdBlueLayer: [0, 0]
+	});
+	
+	Crafty.sprite(64, 100, "hatbirdGreenLayer.png", {
+	    hatbirdGreenLayer: [0, 0]
+	});
+
+	Crafty.sprite(64, 100, "hatbirdOutline.png", {
+	    hatbirdOutline: [0, 0]
+	});
+	
+	Crafty.sprite(64, 100, "hatbirdDarkLayer.png", {
+	    hatbirdDarkLayer: [0, 0]
+	});	
+
+	Crafty.sprite(64, 100, "hatbirdRedLayer2.png", {
+	    hatbirdRedLayer2: [0, 0]
+	});
+	
+	Crafty.sprite(64, 100, "hatbirdBlueLayer2.png", {
+	    hatbirdBlueLayer2: [0, 0]
+	});
+	
+	Crafty.sprite(64, 100, "hatbirdGreenLayer2.png", {
+	    hatbirdGreenLayer2: [0, 0]
+	});
+
+	Crafty.sprite(64, 100, "hatbirdOutline2.png", {
+	    hatbirdOutline2: [0, 0]
+	});
+	
+	Crafty.sprite(64, 100, "hatbirdDarkLayer2.png", {
+	    hatbirdDarkLayer2: [0, 0]
+	});	
 
 	
 
@@ -625,6 +665,6 @@ $(document).ready(function() {
 	
 	playSlides();	
 	
-	//level = 5;
+	//level = 2;
 	//startLevel();
 });

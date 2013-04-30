@@ -1,3 +1,50 @@
+Crafty.c("Hatbird", {
+    init: function() {
+	    var height = 62;
+		var width = 58;
+		
+		var imgHeight = 80;
+		var imgWidth = 64 * 0.8;
+	    this.attr({h: height, w: width, alpha: 0});
+		this.darkLayer = Crafty.e("2D, Canvas, Sprite, hatbirdDarkLayer").attr({h: imgHeight, w:imgWidth, alpha: 1});				
+		this.redLayer = Crafty.e("2D, Canvas, Sprite, hatbirdRedLayer, red, Lightable").attr({h: imgHeight, w:imgWidth, alpha: 0});		
+		this.blueLayer = Crafty.e("2D, Canvas, Sprite, hatbirdBlueLayer, blue, Lightable").attr({h: imgHeight, w:imgWidth, alpha: 0});		
+		this.greenLayer = Crafty.e("2D, Canvas, Sprite, hatbirdGreenLayer, green, Lightable").attr({h: imgHeight, w:imgWidth, alpha: 0});				
+		this.outline = Crafty.e("2D, Canvas, Sprite, hatbirdOutline").attr({h: imgHeight, w:imgWidth, alpha: 1});				
+	},
+	animate: function() {
+		var imgHeight = 80;
+		var imgWidth = 64 * 0.8;
+	
+	
+        if (this.frame == 0) {
+		    this.darkLayer.addComponent("hatbirdDarkLayer").attr({h: imgHeight, w:imgWidth});
+		    this.redLayer.addComponent("hatbirdRedLayer").attr({h: imgHeight, w:imgWidth});
+		    this.greenLayer.addComponent("hatbirdGreenLayer").attr({h: imgHeight, w:imgWidth});
+		    this.blueLayer.addComponent("hatbirdBlueLayer").attr({h: imgHeight, w:imgWidth});
+		    this.outline.addComponent("hatbirdOutline").attr({h: imgHeight, w:imgWidth});
+        } else if (this.frame == 1) {
+		    this.darkLayer.addComponent("hatbirdDarkLayer2").attr({h: imgHeight, w:imgWidth});
+		    this.redLayer.addComponent("hatbirdRedLayer2").attr({h: imgHeight, w:imgWidth});
+		    this.greenLayer.addComponent("hatbirdGreenLayer2").attr({h: imgHeight, w:imgWidth});
+		    this.blueLayer.addComponent("hatbirdBlueLayer2").attr({h: imgHeight, w:imgWidth});
+		    this.outline.addComponent("hatbirdOutline2").attr({h: imgHeight, w:imgWidth}); 
+        }		
+	},
+	attachLayers: function() {
+			this.darkLayer.x = this.x;
+			this.darkLayer.y = this.y-18;
+			this.redLayer.x = this.x;
+			this.redLayer.y = this.y-18;
+			this.blueLayer.x = this.x;
+			this.blueLayer.y = this.y-18;
+			this.greenLayer.x = this.x;
+			this.greenLayer.y = this.y-18;
+			this.outline.x = this.x;
+			this.outline.y = this.y-18;
+	},	
+});
+
 Crafty.c("Subshark", {
     init: function() {
 	    var height = 114;
